@@ -41,7 +41,8 @@ behavior accordingly.
 
 \linebreak
 \linebreak
-{\bf Keywords: keyword, keyword}}
+{\bf Keywords: eye tracking, gaze tracking, telepresence, eye tracking network, gaze aware interfaces, pervasive
+computing, HCI, gaze responsive interfaces, human computer interaction}}
 
 \acknowledgements{}
 \shorttitle{}
@@ -67,8 +68,67 @@ Short Title
 \thispagestyle{plain}
 
 \section{Introduction} 
-Bla bla bla
+Telepresence technology allows a person to feel or to have an effect as if they were present  at a place other than
+their real location. Telepresence technology requires that the user is provided with sensory stimuli to re-create the
+feeling of being in another location. Additionally, users can have the ability to interact  with the remote location
+through output effectors. This can be achieved by sensing, transmitting and duplicating in the remote location the
+user's position, movements, actions, or voice. Hence, in realistic telepresence sytems, information flows in both
+directions between the user and the remote location. Telepresence systems  enable collaboration independent of location
+and provide considerable cost savings for numerous setups.
 
+In this work with present a telepresence systems that allows remote visitors to visit a museum using a semi autonomous
+mobile robot and an immersive web interface. System is designed to allow remote visitors to feel as they are on an
+actual tour in the museum. A network of eye trackers in the remote student locations  monitors the gaze behavior of the
+museum visitors and transmits  the gaze data to the mobile robot that displays it in order to provide to the educator at
+the museum with information about what is attracting the gaze ( and hence the attention) of the remote students.
+
+
+Robotic telepresence allows a subject to move virtually through a distant building by
+remotely controlling a wheeled robot equipped with a camera, microphone, loudspeaker and screen that can
+optionally display live video of the subject’s face.
+
+It has required advances in robotics and telecommunications.
+
+The point of regard (PoR) of a computer user on the screen can be estimated using video oculography gaze tracking. The
+usage of eye gaze as a pointing or control mechanism is well documented in the literature \cite{duchowski,Rozado2012,
+Bonino2011, danhansenrevieweyetrackingmethods}. However, the accuracy limitations of gaze estimation algorithms to
+determine the precise coordinates of a user's gaze on the screen offsets the advantages of using the eyes as a pointing
+mechanism and this has prevented the widespread adoption of gaze tracking as a substitute of the mouse
+\cite{Rozado2012a, giaet, myiwann2011}. Gaze tracking has found a niche application to study how computer users interact
+with content on a computer screen. The gaze data accumulated during a gaze tracking session can be visualized off-line
+as a heat map data structure. A heat map captures the accumulated degree of attention that a given user places at
+different points on the screen during the gaze tracking trial. Hence, it is well-established that the direction of gaze
+reflects the user's focus of attention on the screen \cite{Zhai2003}.
+
+%Literature review
+The work from \cite{minsky1980telepresence} coined the term \emph{telepresence} to describe systems that would
+transform work, manufacturing, energy production and medicine. Minsky proposed the idea of being able to work in another country
+or planet through remote presence.
+
+
+One of the first and most popular applications of the presence is videoconferencing.
+
+
+Another branch of telepresence that has gathered a lot of attention in the research literature is telesurgery
+(``surgery at a distance''), a technique that allows surgeons to operate robotically on a patient that is located in a
+different geographical point. It has the potential to revolutionize healthcare delivery by bringing healthcare to
+previously inaccessible settings \cite{holt2004telesurgery}.
+
+
+
+
+\cite{Gledhill2003435} provides a good overview of panoramic imaging summarizing and comparing some of the methods  to
+carry out capturing, image processing, image stitching, 3-D reconstruction, rendering and visualization. 
+
+
+
+%-----------------------------
+In Summary, the mobile telepresence system allows live interaction between remote students and an educator in the
+museum. multiple remote students connect via a single robot, but control their own view within the gallery. Remote
+students can access additional digital content about objects on display augmenting the tour experience. a network of eye
+trackers in the remote students computers monitor and transmit their gaze behavior. This gaze behavior data is
+displayed in the robot screen to provide feedback signal to museum tour guide about where students are paying
+attention to. This information closes the interaction loop between the educator in the museum and the remote students.
 
 
 \section{Method}
@@ -100,54 +160,73 @@ corneal reflections are the features being tracked.
  \label{screenGazeTracker}
 \end{figure}
 
+In most eye tracking studies, the PoR of the user is employed as a pointing device that substitutes the mouse. For this
+work, eye tracking was used behind the scenes just to capture gaze behavior and transmit it to the robot in order for
+it to display the aggregated gaze behavior of several users to the museum educator. 
 
-\subsection{Apparatus}
+A set of 3 Tobii Rex eye trackers and 1 Tobii X1 light eye tracker was used in the experimental part. Both systems
+track gaze at 30 frames per second (fps) with an average gaze estimation accuracy of 0.5 degrees at 60cm from the screen, 
+\cite{TobiiTechnologyAB}. A simple exponential smoothing filter, \cite{Kumar2007}, of the raw gaze tracking data was
+carried out to prevent jitter.
+
+
+\subsection{Robot}
+% Fred, maybe you could provide more specific and technical details about this part?
+We use a commercial robot that carries a head-height omnidirectional camera and a display screen, see
+Figure \ref{MuseumRobot}. the robot also carries a forward-looking camera and X onboard computers and Wiffi antennas.
+
+\begin{figure}[tp]
+ \includegraphics[width=0.3\textwidth, height=60mm]{figures/MuseumRobot.jpg}
+ %\fitbitmap{figures/ladybug.jpg}
+ \caption{Prototype of telepresence robot}
+ \label{MuseumRobot}
+\end{figure}
+
+The robot moves at walking speed within any wheelchair accessible space. The robot is able to navigate to different
+locations in the museum under the supervision of the tour guide. Using light depiction and ranging technology, the robot
+is able to detect walls, exhibits and people around. Hence, the robot can monitor its location in space and to map its
+surroundings into a real-time map of the gallery space. The robot's navigation system also includes  a dynamic obstacle
+avoidance system.
+
+
+
+\subsection{Museum Tour Guide}
+The teacher wears a wireless lapel microphone, to ensure that he can be heard by the remote students. The museum tour 
+guide can see who is online and which students have questions via the display on the front of the robot.
+
+\subsection{360$^\circ$ Video and panoramic viewer}
+A panorama is a single wide-angle image of the environment around the camera \cite{Gledhill2003435}. The most realistic
+types surround the camera on the horizontal plane (360$^\circ$), and 180$^\circ$ in the vertical field of view. 
+There are different ways to capture panorama: single, rotated about its optical center, single omnidirectional camera (
+using multiple cameras facing  in different directions) or using a stereo panoramic camera from which started
+information can be extracted.
+
+Several cameras capture multiple images of a scene from different viewpoints from which stereo information can be
+calculated and then used to create a 3-D model of the scene.
+
+The 360$^\circ$  panoramic camera (Figure \ref{ladybug}) used in our telepresence system was mounted on top of the robot
+and streamed a high-resolution omnidirectional image to the remote students. Each remote students can then 
+independently ``look around'' the gallery using the panoramic viewer within their browser, see Figure \ref{omnidirectionalimage}.
+
 
 \begin{figure}[tp]
  \includegraphics[width=0.3\textwidth, height=60mm]{figures/ladybug.jpg}
  %\fitbitmap{figures/ladybug.jpg}
- \caption{An image displaying the 360 degree panoramic camera on top of the robot}
+ \caption{An image displaying the 360$^\circ$ panoramic camera on top of the robot}
  \label{ladybug}
 \end{figure}
 
-\begin{figure}[tp]
- \fitbitmap{figures/museumtourview.jpg}
- \caption{Remote interface client through which student can look around the
-museum with freedom to look at different areas within the 360 field of view environment}
- \label{museumtourview}
-\end{figure}
 
 \begin{figure}[tp]
- \fitbitmap{figures/aggregatedGazeBehavior.jpg}
- \caption{Network of eye trackers on the remote students computer captures the gaze behavior of the students and
- combines the gaze data into a high-resolution omni-directional image}
- \label{aggregatedGazeBehavior}
-\end{figure}
-
-\begin{figure}[tp]
- \includegraphics[width=0.4\textwidth, height=140mm]{figures/robotDisplay.jpg}
- \caption{Aggregated gaze behavior of remote
-students superimposed into the omni-directional is shown in the robot display so the tour guide for instance can obtain
-feedback about what areas in space the remote students are paying attention to}
- \label{robotDisplay}
+ \includegraphics[width=0.3\textwidth, height=60mm]{figures/omnidirectionalimage.jpg}
+ %\fitbitmap{figures/ladybug.jpg}
+ \caption{Images from the 360$^\circ$ camera on top of the robot are combined to form a high-resolution omnidirectional
+ image.}
+ \label{omnidirectionalimage}
 \end{figure}
 
 
-The telepresence robot carries a head-height omni-directional camera and a display screen, see
-Figure \ref{ladybug}. It also has a forward-looking camera and a number of onboard computers and wifi antennas.
-
-The educator wears a wireless lapel microphone, to ensure that he can be heard clearly by the remote students. They
-can see who is online, and which students have questions via the display on the front of the robot.
-
-The robot moves at walking speed within any wheelchair accessible space. It intelligently navigates to different
-locations in the museum under the supervision of the educator or guide. It can sense walls, exhibits, and people around
-it using a laser scanner. The robot’s navigation is based on a self-generated map of the gallery space and a
-dynamic obstacle avoidance system.
-
-Using a 360 degree camera mounted on top of the robot, a high resolution omni-directional image is constructed and
-streamed. Each remote student can then independently ‘look around’ the gallery using a panoramic viewer within their
-browser, see Figure{museumtourview}.
-
+\subsection{Remote Students' Computers}
 Each student computer is equipped with a low cost eye tracker capturing frames at 30Hz. The students focus of attention
 in the panoramic viewer is recorded. This includes the horizontal and vertical field of views (that determine the plane
 being displayed on screen at any given time) and the x, y coordinate of their gaze on screen. This for parameters define
@@ -159,6 +238,20 @@ see Figure \ref{ladybug}, and the points of regard of several students are proje
 to the educator about where the students are paying attention to in the scene, see Figure \ref{aggregatedGazeBehavior}
 and \ref{robotDisplay}.
 
+\begin{figure}[tp]
+ \fitbitmap{figures/museumtourview.jpg}
+ \caption{Remote interface client through which student can look around the
+museum with freedom to look at different areas within the 360 field of view environment}
+ \label{museumtourview}
+\end{figure}
+
+\begin{figure}[tp]
+ \includegraphics[width=0.4\textwidth, height=140mm]{figures/robotDisplay.jpg}
+ \caption{Aggregated gaze behavior of remote
+students superimposed into the omni-directional is shown in the robot display so the tour guide for instance can obtain
+feedback about what areas in space the remote students are paying attention to}
+ \label{robotDisplay}
+\end{figure}
 
 The user studies to be carried out in the future will involved students (ages 10-16) from several national high schools.
 Their gaze will be monitored through a network of low cost Tobii Rex eye trackers. These eye trackers offer a
@@ -174,14 +267,49 @@ The krpano panoramic viewer is used by the students to freely move within the 36
 scripts are used to gathered the horizontal and vertical field of view coordinates of each student through the panoramic 
 image.
 
+\begin{figure}[tp]
+ \fitbitmap{figures/aggregatedGazeBehavior.jpg}
+ \caption{Network of eye trackers on the remote students computer captures the gaze behavior of the students and
+ combines the gaze data into a high-resolution omni-directional image}
+ \label{aggregatedGazeBehavior}
+\end{figure}
+
+
 %---------------------------------------------------------------
 \section{Application}
 
 Bla bla bla
+Video demo: \url{}
 
 \section{Discussion}
-Bla bla bla
 
+National institutions such as museums have a responsibility to reach regional and remote school students who are often
+unable to visit them physically due to factors such as cost and distance. A mobile telepresence system provides an
+opportunity for regional and remote students to participate in visits to museums and other educationally relevant
+institutions.
+
+
+A key challenge for telepresence systems will how to leverage the new opportunities provided by telepresence
+technology to engage students and stimulate learning.
+
+The interactive nature of the systems permits interactive learning rather than passive and collaborative learning by
+allowing students to interact with each other and with the tour guide.
+
+
+System is immersive, ( remote students feel as if they are present in the gallery )
+interactive ( remote students engage in discussions with the educator and other students on the tour )
+Engaging ( students can explore digital content that is relevant to the current conversation)
+
+Telepresence facilitates one region of the world exporting specialized skills to anywhere
+
+Elimination of many chemical and physical health hazards
+
+Reduction of transportation costs and of energy and commuting time
+
+Importance of high quality sensory feedback
+
+Time and cost benefits. The visual aspect greatly enhances communications, allowing for perceptions of facial
+expressions and other body language.
 
 \bibliography{library}
 \end{document}
