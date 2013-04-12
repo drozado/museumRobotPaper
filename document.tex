@@ -2,6 +2,7 @@
 \usepackage{graphicx} 
 \usepackage{palatino}
 \usepackage{fancyhdr}
+\usepackage{url}
 \pagestyle{fancy}
 
 % header on first page
@@ -14,7 +15,7 @@ Journal of Eye Movement Research\\
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}}
 
-\title{Distributed Eye Tracking Network for Conveying Population Gaze in a Mobile Telepresence Scenario} %Fill this in
+\title{Distributed Eye Tracking Network for Conveying Population Gaze in a Robotic Telepresence Scenario} %Fill this in
 
 %please refer to http://www.ilsp.gr/homepages/protopapas/apacls.html#titlhead for different numbers of authors and affiliations
 \threeauthors{First Author}{Second Author}{Third Author}
@@ -24,19 +25,22 @@ Journal of Eye Movement Research\\
 \journal{}
 \volume{}
 
-\abstract{Mobile telepresence technology allows one or several remote users to visit a distant geographical space using
-a mobile robot. The robot can carry a 360$^\circ$ panoramic camera that provides to the remote users an immersive
-viewing perspective of the robot environment . One limitation of this technology is that for humans around the robot or
-elsewhere, is difficult to gather a sense of where in the robot's environment the remote users are paying attention to.
-Here, we propose the usage of a distributed network of low cost eye trackers to monitor the gaze behavior and field of
-view of the remote users within the panoramic video live streamed by the robot. The system transmits the gaze data of
-the remote users to the robot that then superimposes the aggregated gaze behavior of the remote users in a condensed 2D
-representation of the panoramic image it is currently capturing from the environment. We use as an illustrative
-application, a robot being employed to visit a museum virtually by several high school students distributed across
-remote locations in Australia. A human  museum guide, directs the robot around the museum while explaining and
-interacting with the remote students through the visual display on the robot. The visualization of the gaze
-behavior of the remote students in real time provides a useful feedback signal to the museum tour guide about where the
-remote students are paying attention to so the guide can adapt his behavior accordingly.
+\abstract{Robot based telepresence technology allows one or several remote users to visit a distant geographical
+location using a mobile robot. The robot can carry a 360$^\circ$ panoramic camera that provides to the remote users an
+immersive viewing perspective of the robot environment through a video live stream. One limitation of this technology is
+that for humans around the robot or elsewhere, is difficult to gather a sense of where in the robot's environment the
+remote users are paying attention to. These contrasts sharply with physical presence where body language and other
+subtle cues provide a hint of where the person is paying attention to. Here, we propose the usage of a distributed
+network of eye trackers to monitor the gaze behavior and field of view of the remote users of the robotic telepresence
+system. This information can be mapped to a 3D point in space in order to track where in the environment surrounding the
+robot the remote users are paying attention to.  This information can be send back to the robot that then superimposes
+the aggregated gaze behavior of the remote users in a condensed 2D representation of the panoramic image it is currently
+capturing from the environment. We use as an illustrative application, a robot being employed to visit a museum remotely
+by several high school students distributed across Australia. A human museum guide, directs the robot around the museum
+while explaining and interacting with the remote students through the visual display on the robot. The visualization of
+the gaze behavior of the remote students in real time provides a useful feedback signal to the museum tour guide about
+where the remote students are paying attention in the guide's environment so he or she can adapt his/her behavior
+accordingly.
 
 \linebreak
 \linebreak
@@ -170,7 +174,7 @@ corneal reflections are the features being tracked.
 
 \begin{figure}[tp]
  %\fitbitmap[scale=0.5]{figures/screenGazeTracker.jpg}
- \includegraphics[width=0.5\textwidth, height=40mm]{figures/screenGazeTracker.jpg}
+ \includegraphics[width=0.45\textwidth, height=40mm]{figures/screenGazeTracker.jpg}
  \caption{\textbf{The Open Source ITU Gaze Tracker Tracking One Eye.} The
   features tracked in the image are the pupil center and two corneal reflections. These features are used by the gaze 
   estimation algorithms to determinine the PoR of the user on the screen.}
@@ -193,7 +197,9 @@ We use a commercial robot that carries a head-height omnidirectional camera and 
 Figure \ref{MuseumRobot}. the robot also carries a forward-looking camera and X onboard computers and Wiffi antennas.
 
 \begin{figure}[tp]
- \includegraphics[width=0.3\textwidth, height=60mm]{figures/MuseumRobot.jpg}
+ \begin{center}
+ \includegraphics[width=0.25\textwidth, height=65mm]{figures/MuseumRobot.jpg}
+ \end{center}
  %\fitbitmap{figures/ladybug.jpg}
  \caption{Prototype of telepresence robot}
  \label{MuseumRobot}
@@ -208,14 +214,14 @@ avoidance system.
 
 
 \subsection{Museum Tour Guide}
-The teacher wears a wireless lapel microphone, to ensure that he can be heard by the remote students. The museum tour 
-guide can see who is online and which students have questions via the display on the front of the robot.
+The museum tour guide wears a wireless lapel microphone to ensure that he can be heard by the remote students. The
+museum tour guide can see who is online and which students have questions via the display on the front of the robot.
 
 \subsection{360$^\circ$ Video and panoramic viewer}
 A panorama is a single wide-angle image of the environment around the camera \cite{Gledhill2003435}. The most realistic
 types surround the camera on the horizontal plane (360$^\circ$), and 180$^\circ$ in the vertical field of view. 
 There are different ways to capture panorama: single, rotated about its optical center, single omnidirectional camera (
-using multiple cameras facing  in different directions) or using a stereo panoramic camera from which started
+using multiple cameras facing  in different directions) or using a stereo panoramic camera from which scene
 information can be extracted.
 
 Several cameras capture multiple images of a scene from different viewpoints from which stereo information can be
@@ -227,15 +233,20 @@ independently ``look around'' the gallery using the panoramic viewer within thei
 
 
 \begin{figure}[tp]
- \includegraphics[width=0.3\textwidth, height=60mm]{figures/ladybug.jpg}
+\begin{center}
+ \includegraphics[width=0.25\textwidth, height=50mm]{figures/ladybug.jpg}
+ \end{center}
  %\fitbitmap{figures/ladybug.jpg}
- \caption{An image displaying the 360$^\circ$ panoramic camera on top of the robot}
+ \caption{The figure displays the ladybug 360$^\circ$ panoramic camera on top of the robot that uses several cameras
+ facing different directions to create a panoramic image of the robots surroundings.}
  \label{ladybug}
 \end{figure}
 
 
 \begin{figure}[tp]
- \includegraphics[width=0.3\textwidth, height=60mm]{figures/omnidirectionalimage.jpg}
+\begin{center}
+ \includegraphics[width=0.45\textwidth, height=60mm]{figures/omnidirectionalimage.jpg}
+ \end{center}
  %\fitbitmap{figures/ladybug.jpg}
  \caption{Images from the 360$^\circ$ camera on top of the robot are combined to form a high-resolution omnidirectional
  image.}
@@ -246,9 +257,9 @@ independently ``look around'' the gallery using the panoramic viewer within thei
 \subsection{Remote Students' Computers}
 Each student computer is equipped with a low cost eye tracker capturing frames at 30Hz. The students focus of attention
 in the panoramic viewer is recorded. This includes the horizontal and vertical field of views (that determine the plane
-being displayed on screen at any given time) and the x, y coordinate of their gaze on screen. This for parameters define
-the point in 3D space the student is looking at. This aggregated data is sent back to the robot, that converts it to a
-3D point in space.
+being displayed on screen at any given time) from the panoramic image and the x, y coordinate of their gaze on screen.
+These four parameters define the point in 3D space the student is looking at. This information is sent back to the
+robot, that converts it to a 2D point in the condensed omnidirectional image.
 
 Images from the 360 degree camera on top of the robot are combined to form a high-resolution omni-directional image,
 see Figure \ref{ladybug}, and the points of regard of several students are projected into this image to provide feedback
@@ -257,7 +268,7 @@ and \ref{robotDisplay}.
 
 \begin{figure}[tp]
  \fitbitmap{figures/museumtourview.jpg}
- \caption{Remote interface client through which student can look around the
+ \caption{Remote browser interface client through which student can look around the
 museum with freedom to look at different areas within the 360 field of view environment}
  \label{museumtourview}
 \end{figure}
@@ -295,8 +306,8 @@ image.
 %---------------------------------------------------------------
 \section{Application}
 
-Bla bla bla
-Video demo: \url{}
+This manuscript's associated video \footnote{\url{http://youtu.be/gB89jT2_3oA}} provides a good visual
+overview of the system at work and how it can be used to monitor the gaze behavior of remote museum visitors. 
 
 \section{Discussion}
 
