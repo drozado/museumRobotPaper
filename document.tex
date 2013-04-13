@@ -327,50 +327,56 @@ feedback about what areas in space the remote students are paying attention to}
 \end{figure}
 
 
-Each remote student computers uses a server-client arquitecture to gather the data being monitored. A javascript
-client program embedded in the browser displayed paga monitors the panoramic viewer field of view and stream this
-data through a websocket to a local server that also receives gaze coordinates from a gaze tracker
-client. This server streams the horizonta and vertical field of view and the gaze coordinates to a further server located in the robot that
-dispatches all the gaze data streams to a handler that displays this information on top of a condensed representation of
-the omni-directional image currently being captured by the robot.
+Each remote student computers uses a server-client arquitecture to gather the
+data being monitored. A javascript client program embedded in the browser
+displayed paga monitors the panoramic viewer field of view and stream this data
+through a websocket to a local server that also receives gaze coordinates from a
+gaze tracker client. This server streams the horizontal and vertical field of
+view and the gaze coordinates to a further server located in the robot that
+dispatches all the gaze data streams to a handler that displays this information
+on top of a condensed representation of the omni-directional image currently
+being captured by the robot.
 
-The TCP protocol is used to issue commands to the eye trackers such as start calibration, calculate results from
-calibration, start tracking, stop tracking. Gaze estimation is sent through the UDP protocol, since the system can
-afford to lose some packets since this would not impact the visualization of the gaze behavior of remote museum
-visitors.
+The TCP protocol is used to issue commands to the eye trackers such as start
+calibration, calculate results from calibration, start tracking, stop tracking.
+Gaze estimation is sent through the UDP protocol, since the system can afford to
+lose some packets since this would not impact the visualization of the gaze
+behavior of remote museum visitors.
 
 
-%---------------------------------------------------------------
+% ---------------------------------------------------------------
 \section{Application}
-We are now in the process of finalizing the setup of the proposed system
-using a network of 4 eye trackers. Our scripts in the browser client stream the
-field of view parameters of each user and their gaze coordinates to a server
-situated in the robot that parses and commands the display unit of the robot to
-render the gaze coordinates of each user represented as a disc over a condensed
-representation of the panoramic image.
-
-At the present time, this is project is still a work in progressthat these currently testing  the  working  of  early
-prototypes of the system but that has already  reached a proof of concept status. Future work can strive to carry out
- user studies to be carried involving students (ages 10-16) from several national high schools.
-Their gaze could be monitored through a network of low cost Tobii Rex eye trackers. These eye trackers offer a
-resolution of 30 samples per second and produce gaze estimation with an average accuracy of 0.5 degrees at 60
-cm from the screen, enough for the no high resolution intensive application described here. 
-
-
-In order to gather sends about how their remote gaze monitoring system in the  robotic telepresence  scenario works,
-the interested reader is encouraged to take a look at the manuscript's associated video at
-\url{http://www.youtube.com/watch?v=gB89jT2_3oA}. The video provides a good visual overview of the system at work
-and how it can be used to monitor the gaze behavior of remote museum
-visitors.
+The system described here is currently in the protopyting stage using a network
+of 4 eye trackers. Our scripts in the browser client stream the field of view
+parameters of each user and their gaze coordinates to a server, not yet
+integrated into the robot, that parses and commands the display unit to render
+the gaze coordinates of each user being monitored by representing his/her gaze
+as a disc over a condensed 2D representation of the panoramic image. In order to
+gather a sense about how the remote gaze monitoring system in the robotic
+telepresence  scenario works, the interested reader is encouraged to take a look
+at the manuscript's associated video at
+\url{http://www.youtube.com/watch?v=gB89jT2_3oA}. The video provides a good
+visual overview of the system at work and how it can be used to monitor the gaze
+behavior of remote museum visitors. The video also shows how the gaze data of
+the remote users is superimposed in the condensed 2D representation of the
+panoramic image being captured by the robot.
 
 The video shows how the museum tour guide moves around the museum closely follow
 by the semi-autonomous robot. The remote students are able to customize the
 specific view from the panoramic video stream that they want to take at any
-particular point.
+particular time point.
+
+At the present time, this project is still a work in progress that is currently
+testing  the  performance  of  early prototypes of the system but that has
+already  reached a proof of concept status. Future work will strive to carry out
+user studies with young students (ages 10-16) from several national high schools
+in order to study their gaze dynamics during a remote museum visits by
+following their gaze patterns with a network of low cost Tobii Rex eye trackers. 
+
 
 
 \section{Discussion}
-Advancements in robotics and communitaction technologies have allowed the
+Advancements in robotics and communication technologies have allowed the
 emergence of telepresence technology systems that permit users to perceive
 and/or interact with a distant region from a remote location.
 Telepresence system offer many opportunities. Telepresence facilitates regions
@@ -380,8 +386,8 @@ transportation costs and of energy and commuting time. Last but not least,
 telepresence eliminates numerous chemical and physical health hazards of
 physical presence in dangerous locations.
 
-One particular are where telepresence systems can be particularly advantegous is
-for education scenarios such as the system presented in this work that allows
+One particular are where telepresence systems can be particularly advantageous
+is for education scenarios such as the system presented in this work that allows
 potential museum visitors to visit an important institution with vasts amounts
 of knowledge from anywhere. National institutions such as museums have a
 responsibility to reach regional and remote potential visitors who are often
@@ -434,6 +440,11 @@ of the gaze behavior of remote visitors and concentrating on its traditional
 tasks and looking at the display of the robot at key moments during the tour
 where he feels he needs to obtain feedback about the engagement levels of the
 tour participants.
+
+These
+eye trackers offer a resolution of 30 samples per second and produce gaze
+estimation with an average accuracy of 0.5 degrees at 60 cm from the screen,
+enough for the no high resolution intensive application described here.
 
 
 The data gathered by the proposed system is simply used to provide a feedback
