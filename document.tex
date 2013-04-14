@@ -36,7 +36,7 @@ camera on the robot can provide remote users with an immersive viewing perspecti
 One limitation of telepresence is that for humans around the robot or elsewhere is difficult to gather a sense of where
 in the robot's environment the remote users are paying attention to. This contrasts sharply with physical presence where
 body language and other subtle cues provide a hint of gaze points on space. Here, we propose the usage of a distributed
-network of eye trackers to monitor the gaze behavior and field of view within the panoramic image streamed by the robot
+network of eye trackers to monitor the gaze behavior and field of view within the panoramic image 
 of the remote subjects. The robot then superimposes the remote user's gaze behavior into a condensed 2D representation
 of the panoramic image it is currently capturing. We use as an illustrative application, a robot being used to visit a
 museum remotely. A human museum guide directs the robot around the museum while interacting with the remote visitors.
@@ -92,8 +92,8 @@ tour. The system is designed to allow remote visitors to feel as they are on an 
 a web browser viewer of the panoramic video streamed by the robot. The innovative part of the system is the usage of a
 network of eye trackers that monitor the gaze behavior of the remote museum visitors and transmits their gaze data to
 the mobile robot. The robot then displays on its on-board screen the gaze behavior of the remote users in order to
-provide to the educator at the museum with information about what is attracting the gaze (and hence the attention) of
-the remote students.
+provide to the educator at the museum with a signal conveying what is attracting the gaze (and hence the
+attention) of the remote students.
 
 
 The point of regard (PoR) of a computer user on the screen can be estimated using video oculography gaze tracking. The
@@ -108,8 +108,7 @@ facts about eye tracking practice and extend it to a network of eye trackers sce
 gaze behavior of several remote museum visitors in a remote telepresence systems. Since the gaze coordinates in a
 remote eye tracker only reflect the PoR on a given plane, we also monitor the field of view within the panoramic video
 viewer. The combination of the field of view and gaze coordinates maps to a unique point in 3D space that identifies the
-position with the panoramic sphere video grabbed by the robot that is capturing the user's attention at any given point
-in time.
+position within the panoramic sphere video grabbed by the robot that is capturing the user's attention.
 
 % Literature review
 The concept of telepresence systems is not new. The work from \cite{minsky1980telepresence} coined the term
@@ -150,14 +149,14 @@ cost of the devices until very recently.
 
 
 In Summary, in this work, we augment a robotic telepresence system that allows live interaction between remote students
-and an educator in a museum by providing the musuem educator with a convinient visualization of the gaze dynamics of the
+and an educator in a museum by providing the museum educator with a convinient visualization of the gaze dynamics of the
 remote museum visitors. Multiple remote museum visitors connect via a single robot to the museum telepresence tour, but
 each remote visitor controls their own view within the gallery. Remote students are given a tour of the museum by the
 guide and can access additional digital content about objects on display through their panoramic viewers augmenting
-thereby the tour experience. A network of eye trackers in the remote students' computers monitor and transmit their gaze
-behavior. This gaze behavior data is displayed in the robot screen to provide the museum with a feedback signal about
-where the remote visitors are paying attention to. This information closes the interaction loop between the educator in
-the museum and the remote students and offsets some of the nonverbal communication limitations of telepresence systems
+thereby the tour experience. A network of eye tracking software in the remote students' computers monitors and transmit
+their gaze behavior to the robot. This gaze behavior data is displayed in the robot screen to provide the museum
+tour guide with a feedback signal about where the remote visitors are paying attention to. This information closes the
+interaction loop between the educator in the museum and the remote students and offsets some of the nonverbal communication limitations of telepresence systems
 by signaling to the museum tour guide where the remote museum visitors are paying attention to at any given instant in
 time.
 
@@ -193,10 +192,11 @@ corneal reflections are the features being tracked.
  \label{screenGazeTracker}
 \end{figure}
 
-In most eye tracking studies, the PoR of the user is employed to generate a heat map of attention areas in the scene
-observed or as a pointing device that substitutes the mouse in gaze interaction paradigms. For this work, eye tracking was used behind
-the scenes just to capture the gaze behavior of the remote museum visitors and transmit it to the robot in order for it
-to display the aggregated gaze behavior of several users as a feedback signal to the museum educator.
+In most eye tracking studies, the PoR of the user is employed to generate a heat map of attention areas in the 2D scene
+plane being observed or as a pointing device that substitutes the mouse in gaze interaction paradigms. For this work,
+eye tracking was used behind the scenes just to capture the gaze behavior of the remote museum visitors and transmit
+that data to the robot in order for it to display the aggregated gaze behavior of several users as a feedback signal to
+the museum educator.
 
 A set of 3 Tobii Rex eye trackers and 1 Tobii X1 light eye tracker are used for the experimental part. Both systems
 track gaze at 30 frames per second (fps) with an average gaze estimation accuracy of 0.5 degrees at 60cm from the screen, 
