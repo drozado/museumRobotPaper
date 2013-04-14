@@ -18,7 +18,9 @@ Journal of Eye Movement Research\\
 
 
 
-\title{Distributed Eye Tracking Network for Conveying Population Gaze in a Robotic Telepresence Scenario} %Fill this in
+\title{Distributed Eye Tracking Network for Conveying Gaze of Remote Users in a Robotic Telepresence
+Scenario}
+%Fill this in
 
 
 %please refer to http://www.ilsp.gr/homepages/protopapas/apacls.html#titlhead for different numbers of authors and affiliations
@@ -29,26 +31,19 @@ Journal of Eye Movement Research\\
 \journal{}
 \volume{}
 
-\abstract{Robot based telepresence technology allows one or several remote users to visit a distant geographical
-location using a mobile robot. The robot can carry a 360$^\circ$ panoramic camera that provides to the remote users an
-immersive viewing perspective of the robot environment through a video live stream. One limitation of this technology is
-that for humans around the robot or elsewhere, is difficult to gather a sense of where in the robot's environment the
-remote users are paying attention to. These contrasts sharply with physical presence where body language and other
-subtle cues provide a hint of where the person is paying attention to. Here, we propose the usage of a distributed
-network of eye trackers to monitor the gaze behavior and field of view of the remote users of the robotic telepresence
-system. This information can be mapped to a 3D point in space in order to track where in the environment surrounding the
-robot the remote users are paying attention to.  This information can be send back to the robot that then superimposes
-the aggregated gaze behavior of the remote users in a condensed 2D representation of the panoramic image it is currently
-capturing from the environment. We use as an illustrative application, a robot being employed to visit a museum remotely
-by several high school students distributed across Australia. A human museum guide, directs the robot around the museum
-while explaining and interacting with the remote students through the visual display on the robot. The visualization of
-the gaze behavior of the remote students in real time provides a useful feedback signal to the museum tour guide about
-where the remote students are paying attention in the guide environment so he or she can adapt his or her behavior
-accordingly.
-\linebreak
-\linebreak
-{\bf Keywords: eye tracking, gaze tracking, telepresence, eye tracking network, gaze aware interfaces, pervasive
-computing, HCI, gaze responsive interfaces, human computer interaction}}
+\abstract{Telepresence technology permits visiting a distant geographical location using a mobile robot. A panoramic
+camera on the robot can provide remote users with an immersive viewing perspective of the robot's environment.
+One limitation of telepresence is that for humans around the robot or elsewhere is difficult to gather a sense of where
+in the robot's environment the remote users are paying attention to. This contrasts sharply with physical presence where
+body language and other subtle cues provide a hint of gaze points on space. Here, we propose the usage of a distributed
+network of eye trackers to monitor the gaze behavior and field of view within the panoramic image streamed by the robot
+of the remote subjects. The robot then superimposes the remote user's gaze behavior into a condensed 2D representation
+of the panoramic image it is currently capturing. We use as an illustrative application, a robot being used to visit a
+museum remotely. A human museum guide directs the robot around the museum while interacting with the remote visitors.
+The visualization of the remote visitors' gaze behavior provides a useful feedback signal to the museum tour guide about
+the remote students areas of attention allowing online adaptations accordingly.
+\linebreak \linebreak {\bf Keywords: eye tracking, gaze tracking, telepresence, eye tracking network, gaze aware
+interfaces, pervasive computing, HCI, gaze responsive interfaces, human computer interaction}}
 
 \acknowledgements{}
 \shorttitle{}
@@ -74,29 +69,31 @@ Short Title
 \section{Introduction} 
 Telepresence technology allows a person to feel and/or to have an effect as if they were present at a place other than
 their real location. Telepresence technology requires that the remote user is provided with sensory stimuli conveying
-information about the distant location in order to re-create the feeling of being in that other location. This is
-usually done by visual and audio sensors that capture and transmit the information about an environment to the remote
+information about the distant location in order to re-create the feeling of being in the distant location. This is
+usually done via visual and audio sensors that capture and transmit the information about an environment to the remote
 users. The option of interacting with the remote location through output effectors can be give to the remote users. This
 can be achieved by sensing, transmitting and duplicating in the remote location the user's position, movements, actions,
 or voice. Hence, in realistic telepresence sytems, information flows in both directions between the distant locations.
-Telepresence systems enable collaboration independent of geographic location and provide considerable savings in terms
-of time, travel cost and environmental impact for numerous usage scenarios. 
+Telepresence systems range of possible usage scenarios have increased considerably in the last years thanks to advances
+in robotics and telecommunication technologies. Among its many advantages telepresence systems enable collaboration
+independent of geographic location and provide considerable savings in terms of time, travel cost and environmental
+impact for numerous usage scenarios.
 
 
-A robotic telepresence can allow a subject to move virtually through a distant building by remotely controlling a
-wheeled robot equipped with a camera, microphone, loudspeaker. An screen in the mobile robot can optionally display
-live video of the subject’s face allowing the remote users to interact with subjects around the robot. Telepresence
-systems range of possible uses have increase considerably in the last years thanks to advances in robotics and
-telecommunication technologies.
+A robotic telepresence system is a particular subtype of telepresence technology that allows a subject to move virtually
+through a distant location by remotely controlling a wheeled robot which is usually equipped with a camera, a microphone
+and a loudspeaker. A screen in the mobile robot can optionally display live video of the subject’s face allowing the
+remote user to interact with subjects around the robot. 
 
 
 In this work, we augment an existing telepresence system that allows remote visitors to visit a museum using a semi
-autonomous mobile robot and an immersive web interface. The system is designed to allow remote visitors to feel as they
-are on an actual tour in the museum  by employing a web browser viewer of the panoramic video streamed by the robot.
-The innovative part of the system is the usage of a network of eye trackers that monitor the gaze behavior of the
-museum visitors and transmits the gaze data to the mobile robot. The robot can then displays on its on-board 
-screen the gaze behavior of the remote users in order to provide to the educator at the museum with information about
-what is attracting the gaze (and hence the attention) of the remote students.
+autonomous mobile robot, an immersive web interface and an educator or museum tour guide near the robot which guides the
+tour. The system is designed to allow remote visitors to feel as they are on an actual tour in the museum  by employing
+a web browser viewer of the panoramic video streamed by the robot. The innovative part of the system is the usage of a
+network of eye trackers that monitor the gaze behavior of the remote museum visitors and transmits their gaze data to
+the mobile robot. The robot then displays on its on-board screen the gaze behavior of the remote users in order to
+provide to the educator at the museum with information about what is attracting the gaze (and hence the attention) of
+the remote students.
 
 
 The point of regard (PoR) of a computer user on the screen can be estimated using video oculography gaze tracking. The
@@ -107,17 +104,23 @@ data accumulated during a gaze tracking session can be visualized off-line as a 
 captures the accumulated degree of attention that a given user places at different points on the screen during the gaze
 tracking trial. Hence, it is well-established that the direction of gaze reflects the user's focus of attention on the
 screen \cite{Zhai2003}, and hence, it provides a hint about intention. In this work, we leverage on these well known
-facts about eye tracking practice and extend it to a network of eye trackers scenario that work together to convey the
-gaze behavior of several remote museum visitors in a remote telepresence systems.
+facts about eye tracking practice and extend it to a network of eye trackers scenario used in combination to convey the
+gaze behavior of several remote museum visitors in a remote telepresence systems. Since the gaze coordinates in a
+remote eye tracker only reflect the PoR on a given plane, we also monitor the field of view within the panoramic video
+viewer. The combination of the field of view and gaze coordinates maps to a unique point in 3D space that identifies the
+position with the panoramic sphere video grabbed by the robot that is capturing the user's attention at any given point
+in time.
 
 % Literature review
 The concept of telepresence systems is not new. The work from \cite{minsky1980telepresence} coined the term
-\emph{telepresence} to describe systems that would transform work, manufacturing, energy production and medicine. Minsky
-proposed the idea of being able to work in another country or planet through remote telepresence.
+\emph{telepresence} to describe systems that would transform work, manufacturing, energy production and medicine by
+allowing remote workers to carry out tasks in remote locations through the usage of robots, sensors and tecommunication
+infrastructure. As a pioneer in the field, Minsky was the first to proposed the idea of being able to work in
+another country or planet through remote telepresence.
 
 One of the first and most popular applications of telepresence is videoconferencing \cite{duncanson1973video}. The
 review  from \cite{Egido:1988:VCT:62266.62268} highlighted some of the limitations of the technology at the time it was
-first proposed, most of which have already been overcome \cite{lawson2010images}.
+first proposed, most of which have currently already been overcome \cite{lawson2010images}.
 
 Another branch of telepresence that has gathered a lot of attention in the research literature is telesurgery, also
 known as \emph{surgery at a distance} \cite{green1995telepresence}. The technique allows surgeons to operate
@@ -126,35 +129,37 @@ the telesurgery concept, the technology has the potential to revolutionize healt
 attention to previously inaccessible settings \cite{holt2004telesurgery}.
 
 
-More recently, telepresence robots that are controlled remotely and allow a human to explore remote graphical location
-have been proposed \cite{schultz1991telepresence} and have received a considerable amount of research attention
-\cite{tsui2011exploring}.
-
+More recently, telepresence robots that are controlled remotely and allow a human to explore remote geographical
+locations have been proposed \cite{schultz1991telepresence} and have received a considerable amount of research
+attention \cite{tsui2011exploring}.
 
 An important feature of robotic telepresence systems is their ability to realistically capture their surrounding
 environment in order to convey a realistic representation of their location to the remote users. Panoramic images are a
-key component of many modern Robotic telepresence systems to provide the functionality of capturing and transmitting a
-high quality visual representation of the robot's surrounding environment. The work from \cite{Gledhill2003435} provides
-a good overview of panoramic imaging technologies summarizing and comparing some of the methods to carry out capturing,
-image processing, image stitching, 3-D reconstruction, rendering and visualization.
+key component of many modern robotic telepresence systems. Panoramic cameras provide the functionality of capturing and
+transmitting a high quality visual representation of the robot's surrounding environment. The work from
+\cite{Gledhill2003435} provides a good overview of panoramic imaging technologies summarizing and comparing some of the
+methods used to carry out the different steps involved in the task: capturing, image processing, image stitching, 3-D
+reconstruction, rendering and visualization.
 
 
 Gaze tracking has been used extensively to monitor the gaze behavior of subjects in a variety of circumstances and
 environments \cite{duchowski, jacob2003eye, myiwann2011}. However, to our knowledge, there is no literature available on
-the utility of using gaze tracking to transmit the gaze behavior of remote users to the robotic environment in a
-telepresence system. The amount of literature on using networks of eye trackers is also very limited due to their high
+the utility of using gaze tracking to transmit the gaze behavior of remote users to the robot's environment in a
+telepresence system. The amount of literature on using networks of eye trackers is also very limited due to the high
 cost of the devices until very recently.
 
 
 In Summary, in this work, we augment a robotic telepresence system that allows live interaction between remote students
-and an educator in a museum by adding gaze tracking of the remote users.  Multiple remote museum visitors connect via a
-single robot to the museum telepresence tour, but each remote visitor controls their own view within the gallery. Remote
-students can access additional digital content about objects on display augmenting thereby the tour experience. A
-network of eye trackers in the remote students' computers monitor and transmit their gaze behavior. This gaze behavior
-data is displayed in the robot screen to provide feedback signal to museum tour guide about where the remote visitors
-are paying attention to. This information closes the interaction loop between the educator in the museum and the remote students
-and offsets some of the nonverbal communication limitations of telepresence systems by signaling to the museum tour
-guide where the remote museum visitors are paying attention to at any given instant in time.
+and an educator in a museum by providing the musuem educator with a convinient visualization of the gaze dynamics of the
+remote museum visitors. Multiple remote museum visitors connect via a single robot to the museum telepresence tour, but
+each remote visitor controls their own view within the gallery. Remote students are given a tour of the museum by the
+guide and can access additional digital content about objects on display through their panoramic viewers augmenting
+thereby the tour experience. A network of eye trackers in the remote students' computers monitor and transmit their gaze
+behavior. This gaze behavior data is displayed in the robot screen to provide the museum with a feedback signal about
+where the remote visitors are paying attention to. This information closes the interaction loop between the educator in
+the museum and the remote students and offsets some of the nonverbal communication limitations of telepresence systems
+by signaling to the museum tour guide where the remote museum visitors are paying attention to at any given instant in
+time.
 
 
 %XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
