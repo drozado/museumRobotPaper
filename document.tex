@@ -258,8 +258,7 @@ browser clients in the remote visitor's computers.
 
 The panoramic camera used in this work uses several cameras that capture multiple images of a scene from different
 viewpoints from which stereo information can be calculated and then used to create a 3-D model of the scene in the form
-of a cubical or spherical panoramas, see Figures \ref{panoramicImage} and \ref{omnidirectionalimage}, in a panoramic
-viewer.
+of a cubical or spherical panoramas in a panoramic viewer, see Figures \ref{panoramicImage} and \ref{omnidirectionalimage}.
 
 \begin{figure}[tp]
  \begin{center}
@@ -278,16 +277,16 @@ viewer.
  \end{center}
  %\fitbitmap{figures/ladybug.jpg}
  \caption{\textbf{Creation of an Immersive Telepresence System.} Images from the 360$^\circ$ camera on top of the robot
- are combined to form a high-resolution omnidirectional image that creates a 360$^\circ$ representation of the
+ are combined to form a high-resolution 2D omnidirectional image that creates a 360$^\circ$ representation of the
  environment around the robot. The image of the top of the Figure represents a condensed representation of the
- 360$^\circ$ panoramic image captured by the panoramic camera. Individual students can look at different planes of the
+ 360$^\circ$ panoramic image captured by the panoramic camera. Individual users can look at different planes of the
  panoramic video stream (bottom images).}
  \label{omnidirectionalimage}
 \end{figure}
 
-The panoramic image viewer used in the remote computers is called Krpano\footnote{\url{http://krpano.com/}}. Krpano is a
-light and very flexible high-performance viewer for all kind of panoramic images, videos and interactive virtual tours.
-The viewer is available as Flash and HTML5 application and is designed for the usage inside the Browser on Desktop and Mobile
+We use Krpano\footnote{\url{http://Krpano.com/}} as the panoramic image viewer used in the remote computers . Krpano
+is a light and very flexible high-performance viewer for all kind of panoramic images, videos and interactive virtual tours.
+The viewer is available as Flash and HTML5 application and is designed for usage inside a Browser on Desktop and Mobile
 computer devices. For our specific telepresence museum visit, each remote students can then independently ``look
 around'' the gallery using the panoramic viewer within their browser as shown in Figure \ref{museumtourview}.
 
@@ -300,23 +299,23 @@ around'' the gallery using the panoramic viewer within their browser as shown in
 \end{figure}
 
 
-\subsection{Remote Students' Client Computers}
+\subsection{Remote Users' Client Computers}
 Each museum visitor computer is equipped with a low cost eye tracker capturing gaze frames at 30Hz. The eye tracker
 provides the X, Y coordinates of gaze on the screen plane. Since the remote museum visitor can also control their horizontal and
 vertical field of view within the panoramic viewer, these parameters are also monitored by a javascript script running
 behind the scenes in the browser. The horizontal and vertical view points refer to the views that determine the plane
 being displayed on screen at any given time from the panoramic image. The combine parameters of horizontal and vertical
-field of view and the X, Y gaze coordinates are transformed in krpano into spherical coordinates to obtain the gaze
+field of view and the X, Y gaze coordinates are transformed in Krpano into spherical coordinates to obtain the gaze
 point of regard of the user in the spherical space. These four parameters define a unique point in the virtual 3D space
-where the museum visitor is looking at and those parameters and then send back to the robot, see Figure
+where the museum visitor is looking at and those parameters are then send back to the robot, see Figure
 \ref{aggregatedGazeBehavior}.
 
 \begin{figure}[tp]
  \fitbitmap{figures/aggregatedGazeBehavior.jpg}
  \caption{\textbf{Eye Tracking Network.} A network of eye trackers on the remote museum visitor's computers captures the
  gaze behavior of the students. That data is combined with the specific field of view plane within the panoramic video
- stream of each student and send back to the robot. The robot then combines the gaze dynamic of each remote visitor in a
- condensed 2D representation of the omni-directional panoramic image.}
+ stream of each student and send back to the robot. The robot then combines the gaze dynamics of each remote visitor
+ with a condensed 2D representation of the omni-directional panoramic image.}
  \label{aggregatedGazeBehavior}
 \end{figure}
 
@@ -346,9 +345,9 @@ clients to a handler that displays this information on top of a condensed repres
 omni-directional video stream currently being captured by the robot. The TCP protocol is used to issue commands to the
 eye trackers such as start calibration, calculate results from calibration, start tracking, stop tracking.
 Data transfers between the clients and the robot is carried out using the UDP protocol for its simplicity and due to the
-fact that missing a gaze frame occasionally is not critically important for the visualization purposes since the system
-can afford to lose some packets since this would not impact the visualization of the gaze behavior of remote museum
-visitors.
+fact that missing a gaze frame occasionally is not critically important for the visualization purposes. This is because
+the system can afford to lose some gaze data packets since this would not impact the visualization of the gaze behavior
+of remote museum visitors.
 
 % ---------------------------------------------------------------
 \section{Application}
