@@ -3,11 +3,8 @@
 \usepackage{palatino}
 \usepackage{fancyhdr}
 \usepackage{url}
-\usepackage{comment}
-%\usepackage{hyperref}
+
 \pagestyle{fancy}
-
-
 
 % header on first page
 \fancypagestyle{plain}{%
@@ -21,8 +18,6 @@ Journal of Eye Movement Research\\
 
 \title{Distributed Eye Tracking Network for Conveying Gaze of Remote Users in a Robotic Telepresence
 Scenario}
-%Fill this in
-
 
 %please refer to http://www.ilsp.gr/homepages/protopapas/apacls.html#titlhead for different numbers of authors and affiliations
 \threeauthors{First Author}{Second Author}{Third Author}
@@ -32,9 +27,8 @@ Scenario}
 \journal{}
 \volume{}
 
-
-
-\abstract{We propose a distributed network of eye trackers to monitor the gaze behaviour of multiple users of a remote
+\abstract{
+We propose a distributed network of eye trackers to monitor the gaze behaviour of multiple users of a remote
 telepresence system. Telepresence systems allow their users to sense a remote location as if they were physically
 present, and may also project images and audio from tele-present subjects into the physical environment – for example
 via a robot. However, a limitation of such telepresence systems is that for humans around the robot it is difficult to
@@ -45,22 +39,10 @@ and a human museum guide directs the robot around the museum while interacting w
 are used to collect information on where remote users are looking. The robot then superimposes this data into a condensed
 representation of the panoramic image on its display screen. The visualization
 of remote visitors' gaze behaviour provides useful feedback to the museum tour guide about their audience’s areas of attention.
-\linebreak \linebreak {\bf Keywords: eye tracking, gaze tracking, telepresence, eye tracking network, gaze aware
+\linebreak
+\linebreak
+{\bf Keywords: eye tracking, gaze tracking, telepresence, eye tracking network, gaze aware
 interfaces, pervasive computing, HCI, gaze responsive interfaces, human computer interaction}}
-
-\begin{comment}
-\abstract{Mobile Telepresence technology permits visiting a distant geographical location using a mobile robot. A
-panoramic camera on the robot can provide remote users with an immersive viewing perspective of the robot's environment.
-One limitation of telepresence is that for humans around the robot or elsewhere is difficult to gather a sense of where
-in the robot's environment the remote users are paying attention to. This contrasts sharply with physical presence where
-body language and other subtle cues provide a hint of gaze points on space. Here, we propose the usage of a distributed
-network of eye trackers to monitor the gaze behavior and field of view within the panoramic image of the remote
-subjects. The robot then superimposes into its display screen the remote user's gaze behavior into a condensed 2D
-representation of the panoramic image being currently captured. We use as illustrative application a robot 
-used to visit a museum remotely. A human educator directs the robot around the museum while interacting with the
-remote visitors. The visualization of the remote visitors' gaze behavior provides a useful feedback signal to the
-educator about the remote users areas of attention in the environment allowing for online adaptations of his behavior.
-\end{comment}
 
 \acknowledgements{}
 \shorttitle{}
@@ -70,7 +52,6 @@ educator about the remote users areas of attention in the environment allowing f
 \leftheader{ }
 
 \begin{document}
-
 \maketitle
 
 \lhead{\small
@@ -82,6 +63,7 @@ Author, A., Author, B., & Author, C. (2007)\\
 Short Title
 }
 \thispagestyle{plain}
+
 
 \section{Introduction} 
 Telepresence technology allows a person to feel and/or to have an effect as if they were present at a place other than
@@ -191,7 +173,7 @@ museum visitors are paying attention to at any given instant in time.
 \section{Method}
 The entire gaze monitoring and robotic telepresence system comprises several subparts that we describe below.
 
-\subsubsection{Eye-tracking system}
+\subsection{Eye tracking system}
 Eyes are used by humans to obtain information about the surroundings and to communicate information. When something
 attracts our attention, we position our gaze on it, thus performing a \emph{fixation}. A fixation usually has a
 duration of at least 150 milliseconds (ms). The fast eye movements that occur between fixations are known as
@@ -263,7 +245,7 @@ display on the front of the robot. With the proposed enhancement we are describi
 also able to monitor the gaze of the remote visitors on the screen of the robot.
 
 
-\subsection{360$^\circ$ Video Stream and Panoramic Viewer}
+\subsection{Panoramic Video Stream and Panoramic Viewer}
 A panorama is a single wide-angle image of the environment around the camera \cite{Gledhill2003435}. The most realistic
 types capture their environment on the horizontal plane (360$^\circ$), and 180$^\circ$ in the vertical field of view. 
 There are different ways to capture a panorama: single, rotated about its optical center, single omnidirectional camera
@@ -303,7 +285,7 @@ using a virtual camera (see Figures \ref{panoramicImage} and \ref{omnidirectiona
  particular museum robot project, the bottom view displayed in this Figure was not captured since the panoramic camera
  lacks that capability. The ladybug instead also possess 6 horizontal cameras generating 6 views rather than the 4
  illustrated in the Figure. The reason for this discordance is to simplify the conceptual clarification of the system
- overall functionality.}
+ overall functionality in the Figure.}
  \label{panoramicImage}
 \end{figure}
 
@@ -354,7 +336,8 @@ where the museum visitor is looking at and those parameters are then send back t
  \caption{\textbf{Eye Tracking Network.} A network of eye trackers on the remote museum visitor's computers captures the
  gaze behavior of the students. That data is combined with the specific field of view plane within the panoramic video
  stream of each student and send back to the robot. The robot then combines the gaze dynamics of each remote visitor
- with a condensed 2D representation of the omni-directional panoramic image.}
+ with a condensed 2D representation of the omni-directional panoramic image.
+ Each disc corresponds to a specific visitor's gaze point at a given point in time.}
  \label{aggregatedGazeBehavior}
 \end{figure}
 
@@ -368,25 +351,30 @@ and \ref{robotDisplay}.
  	\includegraphics[width=0.3\textwidth, height=130mm]{figures/robotDisplay.jpg}
  	\end{center}
  \caption{\textbf{Visualization of Remote Museum Visitors' Gaze Dynamics on the Robot.} The aggregated gaze behavior of
- remote students superimposed into the condensed 2D omni-directional video stream is shown in the robot display so the
- tour guide can obtain feedback about what areas in the environment around the robot are attracting the visitor's
- attention.}
+ remote students superimposed into the condensed 2D omni-directional video
+ stream is shown in the robot display in the form of a color disc so the tour
+ guide can obtain feedback about what areas in the environment around the robot are attracting the visitor's attention.}
  \label{robotDisplay}
 \end{figure}
 
 
-Each remote student computer uses a server-client architecture to gather the data being monitored: gaze coordinates and
-horizontal and vertical fields of view. A javascript client program embedded in the browser display monitors the
-panoramic viewer field of view and stream this data through a websocket to a local server that also receives gaze
-coordinates from a gaze tracker client. This server streams the horizontal and vertical field of view and the gaze
-coordinates to a further server located in the robot that dispatches all the gaze data streams from different browser
-clients to a handler that displays this information on top of a condensed 2D representation of the
-omni-directional video stream currently being captured by the robot. The TCP protocol is used to issue commands to the
-eye trackers such as start calibration, calculate results from calibration, start tracking, stop tracking.
-Data transfers between the clients and the robot is carried out using the UDP protocol for its simplicity and due to the
-fact that missing a gaze frame occasionally is not critically important for the visualization purposes. This is because
-the system can afford to lose some gaze data packets since this would not impact the visualization of the gaze behavior
-of remote museum visitors.
+Each remote visitor's computer uses a server-client architecture to gather the
+data being monitored: gaze coordinates and horizontal and vertical fields of
+view. A javascript client program embedded in the browser display monitors the
+panoramic viewer field of view and streams this data through a websocket to a
+local server that also receives gaze coordinates from a gaze tracker client.
+This server streams the horizontal and vertical field of view and the gaze
+coordinates to a further server located in the robot that dispatches all the
+gaze data streams from different browser clients to a handler that displays this
+information on top of a condensed 2D representation of the omni-directional
+video stream currently being captured by the robot. The TCP protocol is used to
+issue commands to the eye trackers such as start calibration, calculate results
+from calibration, start tracking and stop tracking.
+Data transfers between the clients and the robot is carried out using the UDP
+protocol for its simplicity and due to the fact that missing a gaze frame
+occasionally is not critically important for the visualization purposes. This is
+because the system can afford to lose some gaze data packets since this would
+not impact the visualization of the gaze behavior of remote museum visitors.
 
 % ---------------------------------------------------------------
 \section{Application}
@@ -397,23 +385,33 @@ shown.
 
 This work is embedded within a wider project that seeks to integrate the capabilities described here into an actual
 robotic telepresence system being used by high school students (ages 10-16) to carry out remote museum visits. One of
-the main features of the system is the ability of the remote students are able to customize the specific view from the
-panoramic video stream that they want to take at any particular time point during the museum tour.
+the main features of the system is the ability of the remote students to be able
+to customize the specific view from the panoramic video stream that they want to take at any particular time point during the museum tour.
 
 
-We have developed scripts in the browser client that stream the horizontal and vertical field of view parameters active
-on each user's client computer and their gaze coordinates to a server intended to be placed in the robot. The robot's
-server receives the vector features from each connected client, parses the data and dispatches commands to the display
-unit to render the gaze coordinates of each user being monitored. This is accomplished by representing each user's gaze
-as a disc over a condensed 2D representation of the panoramic image. In order to gather a sense about how the remote
-gaze monitoring system in the robotic telepresence scenario works, the interested reader is encouraged to take a look at
-the manuscript's associated video at \url{http://youtu.be/gB89jT2_3oA}. The
-video provides a good visual overview of a preliminary version of the system at work and how it can be used to monitor the gaze behavior of remote museum visitors.
-The video also shows how the gaze data of the remote users is superimposed in the condensed 2D representation of the
-panoramic image being captured by the robot, the key feature of the system described system. The video shows how the
-museum tour guide actually moves around the museum and how she is closely followed by the semi-autonomous robot while
-interacting with the students. The main contribution of the system described here to the telepresence scenario is to
-provide the educator or museum tour guide with a sense of what around her catches the remote students' attention.
+We have developed scripts in the browser client that stream the horizontal and
+vertical field of view parameters active on each user's client computer and
+their gaze coordinates to a server intended to be placed in the robot. The
+robot's server receives the vector features from each connected client, parses
+the data and dispatches commands to the display unit to render the gaze
+coordinates of each user being monitored. This is accomplished by representing
+each user's gaze as a disc over a condensed 2D representation of the panoramic
+image. In order to gather a sense about how the remote gaze monitoring system in
+the robotic telepresence scenario works, the interested reader is encouraged to
+take a look at the manuscript's associated video at
+\url{http://youtu.be/gB89jT2_3oA} (Please see footnote\footnote{I haven't
+been able to make the url functional in the pdf. Please enter the underscore
+character contained in the URL manually to visualize the video}).
+The video provides a good visual overview of a preliminary version of the system at work and how it can be used to monitor the
+gaze behavior of remote museum visitors.
+The video also shows how the gaze data of the remote users is superimposed in
+the condensed 2D representation of the panoramic image being captured by the
+robot, the key feature of the system described system. The video shows how the
+museum tour guide actually moves around the museum and how she is closely
+followed by the semi-autonomous robot while interacting with the students. The
+main contribution of the system described here to the telepresence scenario is
+to provide the educator or museum tour guide with a sense of what around her
+catches the remote students' attention.
 
 
 An early protototype of the system described here has already been built and tested as shown in the manuscripts
@@ -432,8 +430,8 @@ benefits by reducing transportation costs, energy savings and commuting time. La
 eliminates numerous chemical and physical health hazards of physical presence in dangerous locations.
 
 
-One particular are where telepresence systems can be particularly advantageous is for education scenarios such as the
-system presented in this work that allows potential museum visitors such as high-school students to visit institution
+One particular area where telepresence systems can be particularly advantageous
+is for education scenarios such as the system presented in this work that allows potential museum visitors such as high-school students to visit institution
 with relevant education material such as museums from distant geographical locations. National institutions such as
 museums have a responsibility to reach regional and remote potential visitors who are often unable to visit them
 physically due to factors such as cost, time and distance. A mobile telepresence system provides an opportunity for
@@ -441,33 +439,34 @@ regional and remote potential museum visitors to participate in tours on the mus
 institutions.
 
 
-A key challenge for robotic telepresence systems for visiting distant locations through a robot will be how to leverage
-the new opportunities provided by telepresence technology to engage users of the system by providing highly realistic
+A key challenge for robotic telepresence systems used for visiting distant
+locations through a robot will be how to leverage the new opportunities provided by telepresence technology to engage users of the system by providing highly realistic
 user experiences. In the telepresence system presented here, the panoramic viewer in the browser's client is highly
-immersive and strives to make remote students feel as if they are present in the gallery through the panoramic video
-stream. The systems is also highly interactive allowing remote students to select their own view within the panoramic
+immersive and strives to make remote subjects feel as if they are present in the
+gallery through the panoramic video stream. The systems is also highly interactive allowing remote students to select their own view within the panoramic
 image and to engage in discussions with the educator and other students on the tour. The strive to make the tour a
 realistic experience does not preclude augmenting the tour experience by superimposing in key objects of the museum meta
-digital content layers for which a given student might wish to know more. The interactive nature of the systems
-presented here in the context of a museum visit permits interactive learning rather than passive and collaborative learning by allowing
+digital content layers for which a given remote visitor might wish to know more.
+The interactive nature of the systems presented here in the context of a museum visit permits interactive learning rather than passive and collaborative learning by allowing
 students to interact with each other and with the tour guide. This visual aspect greatly enhances communications,
 allowing for perceptions of facial expressions and other body language.
 
 
 However, specific telepresence application also need to overcome challenges that make the experience at its current
 stage unrealistic. An important limitation of telepresence technology that we tried to bridge with our proposed system
-is the lack of awareness of the humans around the robot or elsewhere about the point of regard in the environment of the
-remote users. Our system bridges that gap by substituting the body language cues that actual museum visitors would provide to the
-museum tour guide with a visualization of the 3D environment in 2D in the robot display where the gaze patterns of the
+is the lack of awareness of the humans around the robot or elsewhere about the
+gaze point of regard in the environment of the remote users. Our system bridges
+that gap by substituting the body language cues that actual museum visitors would provide to the museum tour guide with a visualization of the 3D environment in 2D in the robot display where the gaze patterns of the
 remote users are superimposed. The importance of high quality sensory feedback is paramount in telepresence scenarios.
 The network of eye trackers system presented here provides an additional important clue to the museum tour guide about
-what areas in his/her environment are attracting the student's attention.
+what areas in his/her environment are attracting the visitor's attention.
 
 
 The non-invasive nature of the eye trackers being used, by virtue of being video based and not requiring any equipment
 physically attached to the remote museum visitors, makes them non-invasive. The gaze tracking monitoring being carried
 out in the background results in a transparent user experience. Often, after the calibration the user is not necessarily
-aware any more than his gaze is being monitor since the task is being carried out silently in the background.
+aware any more that his gaze is being monitor since the task is being carried
+out silently in the background.
 
 
 One potential limitation of the system is the possibility of cognitively overloading the museum tour guide that while
@@ -487,8 +486,8 @@ and acquired knowledge that they achieved through the visit. Using this data, co
 students and different performance levels in the questionnaire should be mined in an attempt to generate insights about
 the relationships between gaze dynamics and learning performance. This knowledge could be harnessed online to gently
 push students detected to be become disengaged during the course of a museum visit. Different methods to 
-regain the attention of disengaged students towards the task could maximize the educational
-benefits of the museum tour.
+regain the attention of disengaged students towards the task at hand could
+maximize the educational benefits of the museum tour.
 
 
 Any sort of large scale study looking for correlations between learning and gaze dynamics in a robotic telepresence
@@ -500,12 +499,15 @@ experimental scenarios. The current trend towards lower cost eye trackers from m
 trackers hardware costs will not be a limiting factor for this sort of research.
 
  
-In summary, the system presented here is first of its kind in capturing the gaze data of several remote museum visitors
-in a robotic telepresence scenario in order display their gaze activity to a museum tour guide. This important feedback
-signal helps to bridge the communication gap between the museum tour educator and the distant museum visitors. Further
-studies should build over the proposed system and use the gaze data generated by the system to find
-out those students that are not benefiting from the museum tour and provide them with online signals to recapture their
-attention dynamically in order to improve the educational value of the museum visit experience.
+In summary, the system presented here is first of its kind in capturing the gaze
+data of several remote museum visitors in a robotic telepresence scenario in
+order to display their gaze activity to a museum tour guide. This important
+feedback signal helps to bridge the communication gap between the museum tour
+educator and the distant museum visitors. Further studies should build upon the
+proposed system and use the gaze data generated to find out those students that
+are not benefiting from the museum tour and provide them with online signals to
+recapture their attention dynamically in order to improve the educational value
+of the museum visit experience.
 
 
 \bibliography{library}
