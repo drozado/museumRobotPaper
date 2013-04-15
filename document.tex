@@ -260,7 +260,7 @@ browser clients in the remote visitor's computers.
 The panoramic camera used in this work uses six 2.0MP cameras to capture a 360$^\circ$ by 140$^\circ$ field of view. 
 The six individual images are stitched onto a fixed-radius sphere, and then mapped onto a rectangular image using a cylindrical
 (Mercator) projection. A continuous sequence of these panoramic images is encoded into a high-definition video stream
-and sent to each client, where it is mapped onto a sphere to provide the canvas for immersive panoramic viewing 
+and sent to each client, where it is decoded and mapped onto a spherical canvas for immersive panoramic viewing 
 using a virtual camera.
 (see Figures \ref{panoramicImage} and \ref{omnidirectionalimage}.
 
@@ -270,8 +270,8 @@ using a virtual camera.
  \end{center}
  %\fitbitmap{figures/ladybug.jpg}
  \caption{\textbf{Panoramic Viewer.} The panoramic camera is used to capture different, but overlapping, views
- of the robot environment that are then stitched together in the panoramic viewer to create an immersive 3D-like
- experience for the remote users.} 
+ of the robot environment that are combined into a panoramic video stream, and sent to each client, where it is  
+ wrapped onto a virtual sphere to create an immersive 3D-like experience for the remote users.} 
  \label{panoramicImage}
 \end{figure}
 
