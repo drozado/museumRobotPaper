@@ -3,7 +3,9 @@
 \usepackage{palatino}
 \usepackage{fancyhdr}
 \usepackage{hyperref}
+%\usepackage{url}
 \usepackage[strings]{underscore}
+\usepackage{comment}
 \pagestyle{fancy}
 
 
@@ -30,19 +32,35 @@ Scenario}
 \journal{}
 \volume{}
 
-\abstract{Telepresence technology permits visiting a distant geographical location using a mobile robot. A panoramic
-camera on the robot can provide remote users with an immersive viewing perspective of the robot's environment.
+
+
+\abstract{We propose a distributed network of eye trackers to monitor the gaze behaviour of multiple users of a remote
+telepresence system. Telepresence systems allow their users to sense a remote location as if they were physically
+present, and may also project images and audio from tele-present subjects into the physical environment – for example
+via a robot. However, a limitation of such telepresence systems is that for humans around the robot it is difficult to
+determine where the remote users are focusing their attention. This contrasts with physical presence where body language
+and other subtle cues provide a hint of gaze points. We use as an illustrative application a robot which facilitates
+remote museum visits. A panoramic camera on the robot provides remote users with an immersive view within the gallery,
+and a human museum guide directs the robot around the museum while interacting with the remote visitors. Eye trackers
+are used to collect information on where remote users are looking. This information is then superimposed into a
+condensed representation of the panoramic image. The visualization of remote visitors' gaze behaviour provides
+useful feedback to the museum tour guide about their audience’s areas of attention.
+\linebreak \linebreak {\bf Keywords: eye tracking, gaze tracking, telepresence, eye tracking network, gaze aware
+interfaces, pervasive computing, HCI, gaze responsive interfaces, human computer interaction}}
+
+\begin{comment}
+\abstract{Mobile Telepresence technology permits visiting a distant geographical location using a mobile robot. A
+panoramic camera on the robot can provide remote users with an immersive viewing perspective of the robot's environment.
 One limitation of telepresence is that for humans around the robot or elsewhere is difficult to gather a sense of where
 in the robot's environment the remote users are paying attention to. This contrasts sharply with physical presence where
 body language and other subtle cues provide a hint of gaze points on space. Here, we propose the usage of a distributed
-network of eye trackers to monitor the gaze behavior and field of view within the panoramic image 
-of the remote subjects. The robot then superimposes the remote user's gaze behavior into a condensed 2D representation
-of the panoramic image it is currently capturing. We use as an illustrative application a robot being used to visit a
-museum remotely. A human museum guide directs the robot around the museum while interacting with the remote visitors.
-The visualization of the remote visitors' gaze behavior provides a useful feedback signal to the museum tour guide about
-the remote users areas of attention in the environment allowing online adaptations of behavior.
-\linebreak \linebreak {\bf Keywords: eye tracking, gaze tracking, telepresence, eye tracking network, gaze aware
-interfaces, pervasive computing, HCI, gaze responsive interfaces, human computer interaction}}
+network of eye trackers to monitor the gaze behavior and field of view within the panoramic image of the remote
+subjects. The robot then superimposes into its display screen the remote user's gaze behavior into a condensed 2D
+representation of the panoramic image being currently captured. We use as illustrative application a robot 
+used to visit a museum remotely. A human educator directs the robot around the museum while interacting with the
+remote visitors. The visualization of the remote visitors' gaze behavior provides a useful feedback signal to the
+educator about the remote users areas of attention in the environment allowing for online adaptations of his behavior.
+\end{comment}
 
 \acknowledgements{}
 \shorttitle{}
@@ -70,18 +88,19 @@ Telepresence technology allows a person to feel and/or to have an effect as if t
 their real location. Telepresence technology requires that the remote user is provided with sensory stimuli conveying
 information about the distant location in order to re-create the feeling of being in the distant location. This is
 usually done via visual and audio sensors that capture and transmit the information about an environment to the remote
-users. The option of interacting with the remote location through output effectors can be give to the remote users. This
-can be achieved by sensing, transmitting and duplicating in the remote location the user's position, movements, actions,
-or voice. Hence, in realistic telepresence sytems, information flows in both directions between the distant locations.
-Telepresence systems range of possible usage scenarios have increased considerably in the last years thanks to advances
-in robotics and telecommunication technologies. Among its many advantages, telepresence systems enable collaboration
-independent of geographic location and provide considerable savings in terms of time, travel costs and environmental
-impact for numerous usage scenarios.
+users. It is paramout also to provide people in the robot's location with information about remote visitors' behavior.
+The option of interacting with the distant location through output effectors can be give to the remote users.
+This can be achieved by sensing, transmitting and duplicating in the remote location the user's position, movements,
+actions, or voice. Hence, in realistic telepresence sytems, information flows in both directions between the distant
+locations. The range of possible usages of Telepresence systems scenarios has increased considerably in the last years
+thanks to advances in robotics and telecommunication technologies. Among its many advantages, telepresence systems enable
+collaboration independent of geographic location and provide considerable savings in terms of time, travel costs and
+environmental impact for numerous usage scenarios.
 
 
 A robotic telepresence system is a particular subtype of telepresence technology that allows a subject to move virtually
 through a distant location by remotely controlling a wheeled robot which is usually equipped with a camera, a microphone
-and a loudspeaker. A screen in the mobile robot can optionally display live video of the subject’s face allowing the
+and a loudspeaker. A screen in the mobile robot can optionally display live video of the subject's face allowing the
 remote user to interact with subjects around the robot. 
 
 
@@ -113,12 +132,12 @@ position within the panoramic sphere video grabbed by the robot that is capturin
 The concept of telepresence systems is not new. The work from \cite{minsky1980telepresence} coined the term
 \emph{telepresence} to describe systems that would transform work, manufacturing, energy production and medicine by
 allowing remote workers to carry out tasks in remote locations through the usage of robots, sensors and tecommunication
-infrastructure. As a pioneer in the field, Minsky was the first to proposed the idea of being able to work in
+infrastructure. As a pioneer in the field, Minsky was the first to propose the idea of being able to work in
 another country or planet through remote telepresence.
 
 One of the first and most popular applications of telepresence is videoconferencing \cite{duncanson1973video}. The
 review  from \cite{Egido:1988:VCT:62266.62268} highlighted some of the limitations of the technology at the time it was
-first proposed, most of which have currently already been overcome \cite{lawson2010images}.
+first proposed, most of which have already been overcome \cite{lawson2010images}.
 
 Another branch of telepresence that has gathered a lot of attention in the research literature is telesurgery, also
 known as \emph{surgery at a distance} \cite{green1995telepresence}. The technique allows surgeons to operate
@@ -132,10 +151,9 @@ locations have been proposed \cite{schultz1991telepresence} and have received a 
 attention \cite{tsui2011exploring}.
 
 An important feature of robotic telepresence systems is their ability to realistically capture their surrounding
-environment in order to convey a realistic representation of their location to the remote users. Panoramic images are a
-key component of many modern robotic telepresence systems. Panoramic cameras provide the functionality of capturing and
-transmitting a high quality visual representation of the robot's surrounding environment. The work from
-\cite{Gledhill2003435} provides a good overview of panoramic imaging technologies summarizing and comparing some of the
+environment in order to convey a realistic representation of their location to the remote users. Panoramic images
+can enhance modern robotic telepresence systems. Panoramic cameras provide the functionality of capturing and
+transmitting a high quality visual representation of the robot's surrounding environment. The work from \cite{Gledhill2003435} provides a good overview of panoramic imaging technologies summarizing and comparing some of the
 methods used to carry out the different steps involved in the process: capturing, image processing, image stitching, 3-D
 reconstruction, rendering and visualization.
 
@@ -261,19 +279,22 @@ The panoramic camera used in this work uses six 2.0MP cameras to capture a 360$^
 The six individual images are stitched onto a fixed-radius sphere, and then mapped onto a rectangular image using an equirectangular
 projection. A continuous sequence of these panoramic images is encoded into a high-definition video stream
 and sent to each client, where it is decoded and mapped onto a spherical canvas for immersive panoramic viewing 
-using a virtual camera (see Figures \ref{panoramicImage} and \ref{omnidirectionalimage}.
+using a virtual camera (see Figures \ref{panoramicImage} and \ref{omnidirectionalimage}).
 
 \begin{figure}[tp]
  \begin{center}
- \includegraphics[width=0.48\textwidth, height=85mm]{figures/panoramicImage.jpg}
+ \includegraphics[width=0.35\textwidth, height=85mm]{figures/panoramicImage.jpg}
  \end{center}
  %\fitbitmap{figures/ladybug.jpg}
- \caption{\textbf{Panoramic Viewer.} The panoramic camera is used to capture different, but overlapping, views
- of the robot environment that are combined into a panoramic video stream, and sent to each client, where it is  
- wrapped onto a virtual sphere to create an immersive 3D-like experience for the remote users. The planes in the top of
- the Figure represent the planes captured by the different cameras in the Ladybug. The color coded representation in
- the bottom display how the different planes are stiched together in the panoramic viewer to form a cubical panoramic
- environment.}
+ \caption{\textbf{Panoramic Viewer.} A panoramic camera (Figure top) is used to capture different, but overlapping,
+ views of the robot environment that are combined into a panoramic video stream, and sent to each client, where it is  
+ wrapped onto a virtual sphere. The middle of the figure shows a one image 360x180$^\circ$ projection of the spherical
+ panorama being captured\footnote{http://Krpano.com/}. This allows the remote users to use a panoramic viewer such as
+ Krpano that renders the different views into an immersive viewing environment (Figure bottom). Note that in our
+ particular museum robot project, the bottom view displayed in this Figure was not captured since the panoramic camera
+ lacks that capability. The ladybug instead also possess 6 horizontal cameras generating 6 views rather than the 4
+ illustrated in the Figure. The reason for this discordance is to simplify the conceptual clarification of the system
+ overall functionality.}
  \label{panoramicImage}
 \end{figure}
 
@@ -284,7 +305,7 @@ using a virtual camera (see Figures \ref{panoramicImage} and \ref{omnidirectiona
  %\fitbitmap{figures/ladybug.jpg}
  \caption{\textbf{Creation of an Immersive Telepresence System.} Images from the 360$^\circ$ camera on top of the robot
  are combined to form a high-resolution 2D omnidirectional image representing the
- environment around the robot (top image). Individual users can look at different planes of the
+ environment around the robot (top image). Individual users can look at different subareas of the
  panoramic video stream (bottom images).}
  \label{omnidirectionalimage}
 \end{figure}
