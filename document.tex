@@ -206,10 +206,10 @@ carried out to prevent jitter in the visualization of the remote visitor's gaze.
 
 \subsection{Robot}
 % Fred, maybe you could provide more specific and technical details about this part?
-We use a commercial robot that carries a head-height omnidirectional camera and a display screen, see
-Figure \ref{MuseumRobot} to observe an early prototype of the system. The robot also carries a forward-looking camera
-for video conferencing purposes between the museum tour guide and the remote students, two onboard computers, a screen
-display and Wi-Fi antennas.
+We use a commercially available Research-PatrolBot robot from Adept-MobileRobots to provide mobility and power to the system.
+The robot base carries a shoulder-height Point Grey Ladybug3 panoramic camera, a touch-screen for controlling the robot and the tour, 
+a web-cam for teleconferencing between the guide and remote visitors, and a computer for running the user interface and video-processing.
+All data communication is over 802.11n Wi-Fi. See Figure \ref{MuseumRobot} to observe an early prototype of the system.
 
 \begin{figure}[tp]
  \begin{center}
@@ -221,15 +221,16 @@ display and Wi-Fi antennas.
  \label{MuseumRobot}
 \end{figure}
 
-The robot moves at walking speed within any wheelchair accessible space. The robot is able to navigate semi-autonomously
-to different locations in the museum under the supervision of the tour guide. Using light depiction and ranging
-technology, the robot is able to detect walls, exhibits and people around by mapping its surroundings into a real-time
-map of the gallery space that allows it to monitor its location in space and that of potential obstacles. The robot
-avoids theses entities using a dynamic obstacle avoidance system as part of its navigation protocol.
+The robot moves at walking speed within any wheelchair accessible space, and is able to navigate safely and autonomously
+between pre-defined locations in the museum, as commanded by the guide. The robot navigates to a commanded destination
+by first planning an efficient route within a pre-made map of the museum, and then following that route whilst reactively avoiding unmapped obstacles 
+(such as people and other objects), that are detected by the on-board laser-scanner. The robot maintains an accurate estimate of its location in 
+the museum by tracking its movements using wheel-odometry, and correcting for drift by matching features in the current laser scan with
+features in the pre-made map.
 
 
 \subsection{Museum Tour Guide}
-The museum tour guide wears a wireless lapel microphone to ensure that he can be heard by the remote students while
+The museum tour guide wears a wireless head-set microphone to ensure that he can be heard by the remote students while
 carrying out a museum tour. The museum tour guide can see who is online and which students have questions via the
 display on the front of the robot. With the proposed enhancement we are describing in this work, the museum guide is
 also able to monitor the gaze of the remote visitors on the screen of the robot.
@@ -243,29 +244,32 @@ There are different ways to capture a panorama: single, rotated about its optica
 information can be extracted.
 
 The 360$^\circ$  panoramic camera (Figure \ref{ladybug}) used in our telepresence system was mounted on top of the robot
-and captured a high-resolution omnidirectional image of the robot's environment that it was further streamed to the
-browser clients in the remote visitor's computers.
+and captured a high-resolution omnidirectional image of the robot's environment that was further streamed to the
+browser clients in the remote visitor's computers. 
 
 \begin{figure}[tp]
 \begin{center}
  \includegraphics[width=0.25\textwidth, height=60mm]{figures/ladybug.jpg}
  \end{center}
  %\fitbitmap{figures/ladybug.jpg}
- \caption{\textbf{Panoramic Camera.} The figure displays the ladybug 360$^\circ$ panoramic camera on top of the robot
+ \caption{\textbf{Panoramic Camera.} The figure displays the LadyBug3 panoramic camera on top of the robot
  that uses several cameras facing different directions to create a panoramic image of the robots surroundings.}
  \label{ladybug}
 \end{figure}
 
-The panoramic camera used in this work uses several cameras that capture multiple images of a scene from different
-viewpoints from which stereo information can be calculated and then used to create a 3-D model of the scene in the form
-of a cubical or spherical panoramas in a panoramic viewer, see Figures \ref{panoramicImage} and \ref{omnidirectionalimage}.
+The panoramic camera used in this work uses six 2.0MP cameras to capture a 360$^\circ$ by 140$^\circ$ field of view. 
+The six individual images are stitched onto a fixed-radius sphere, and then mapped onto a rectangular image using a cylindrical
+(Mercator) projection. A continuous sequence of these panoramic images is encoded into a high-definition video stream
+and sent to each client, where it is mapped onto a sphere to provide the canvas for immersive panoramic viewing 
+using a virtual camera.
+(see Figures \ref{panoramicImage} and \ref{omnidirectionalimage}.
 
 \begin{figure}[tp]
  \begin{center}
  \includegraphics[width=0.48\textwidth, height=85mm]{figures/panoramicImage.jpg}
  \end{center}
  %\fitbitmap{figures/ladybug.jpg}
- \caption{\textbf{Panoramic Viewer.} The panoramic camera is used to capture several planes
+ \caption{\textbf{Panoramic Viewer.} The panoramic camera is used to capture different, but overlapping, views
  of the robot environment that are then stitched together in the panoramic viewer to create an immersive 3D-like
  experience for the remote users.} 
  \label{panoramicImage}
@@ -336,7 +340,7 @@ and \ref{robotDisplay}.
 \end{figure}
 
 
-Each remote student computer uses a server-client arquitecture to gather the data being monitored: gaze coordinates and
+Each remote student computer uses a server-client architecture to gather the data being monitored: gaze coordinates and
 horizontal and vertical fields of view. A javascript client program embedded in the browser display monitors the
 panoramic viewer field of view and stream this data through a websocket to a local server that also receives gaze
 coordinates from a gaze tracker client. This server streams the horizontal and vertical field of view and the gaze
