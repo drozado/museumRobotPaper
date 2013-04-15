@@ -328,7 +328,7 @@ and \ref{robotDisplay}.
 	\begin{center}
  	\includegraphics[width=0.3\textwidth, height=130mm]{figures/robotDisplay.jpg}
  	\end{center}
- \caption{\textbf{Visualization of Remote Museum Visitors Gaze Dynamics on the Robot.} The aggregated gaze behavior of
+ \caption{\textbf{Visualization of Remote Museum Visitors' Gaze Dynamics on the Robot.} The aggregated gaze behavior of
  remote students superimposed into the condensed 2D omni-directional video stream is shown in the robot display so the
  tour guide can obtain feedback about what areas in the environment around the robot are attracting the visitor's
  attention.}
@@ -357,28 +357,30 @@ display where a condensed 2D representation of the omni-directional video stream
 shown. 
 
 This work is embedded within a wider project that seeks to integrate the capabilities described here into an actual
-robotic telepresence system being used to carry out remote museum visits in a museum visit by high school students (ages
-10-16). The remote students are able to customize the specific view from the panoramic video stream that they want to
-take at any particular time point.
+robotic telepresence system being used by high school students (ages 10-16) to carry out remote museum visits. One of
+the main features of the system is the ability of the remote students are able to customize the specific view from the
+panoramic video stream that they want to take at any particular time point during the museum tour.
 
 
 We have developed scripts in the browser client that stream the horizontal and vertical field of view parameters active
-on each user and their gaze coordinates to a server intended to be placed in the robot. The server receives the vector
-featurs from each connected client, parses the data and dispatches commands to the display unit to render the gaze
-coordinates of each user being monitored by representing his/her gaze as a disc over a condensed 2D representation of
-the panoramic image. In order to gather a sense about how the remote gaze monitoring system in the robotic telepresence
-scenario works, the interested reader is encouraged to take a look at the manuscript's associated video at
-\url{http://www.youtube.com/watch?v=gB89jT2_3oA}. The video provides a good visual overview of a preliminary version of
-the system at work and how it can be used to monitor the gaze behavior of remote museum visitors. The video also shows
-how the gaze data of the remote users is superimposed in the condensed 2D representation of the panoramic image being
-captured by the robot, the key feature of the here described system. The video shows how the museum tour guide actually
-moves around the museum and how she is closely follow by the semi-autonomous robot while interacting with the students.
-The main contribution of the system described here to the telepresence scenario is to provide the educator or museum
-tour guide with a sense of what around them catches remote students' attention.
+on each user's client computer and their gaze coordinates to a server intended to be placed in the robot. The server to
+be placed in the robot receives the vector features from each connected client, parses the data and dispatches commands
+to the display unit to render the gaze coordinates of each user being monitored by representing his/her gaze as a disc
+over a condensed 2D representation of the panoramic image. In order to gather a sense about how the remote gaze
+monitoring system in the robotic telepresence scenario works, the interested reader is encouraged to take a look at the
+manuscript's associated video at \url{http://www.youtube.com/watch?v=gB89jT2_3oA}. The video provides a good visual
+overview of a preliminary version of the system at work and how it can be used to monitor the gaze behavior of remote
+museum visitors. The video also shows how the gaze data of the remote users is superimposed in the condensed 2D
+representation of the panoramic image being captured by the robot, the key feature of the system described system. The
+video shows how the museum tour guide actually moves around the museum and how she is closely follow by the
+semi-autonomous robot while interacting with the students. The main contribution of the system described here to the
+telepresence scenario is to provide the educator or museum tour guide with a sense of what around her catches the remote
+students' attention.
 
-An early protototypes of the system described here has already been build and tested as shown in the manuscripts
+
+An early protototype of the system described here has already been built and tested as shown in the manuscripts
 accompanying video, reaching the proof of concept status. Future work will strive to carry out user studies with young
-students from several national high schools in order to study their gaze dynamics during a remote museum visits by
+students from several national high schools in order to study their gaze dynamics during a remote museum visit by
 following their gaze patterns with a larger network of low cost Tobii Rex eye trackers.
 
 
@@ -386,9 +388,9 @@ following their gaze patterns with a larger network of low cost Tobii Rex eye tr
 Advancements in robotics and communication technologies have allowed the emergence of telepresence technology systems
 that permit users to perceive and/or interact with a distant region from a remote location. The robotic telepresence
 system to visit a museum described in this work is one of several examples in the growing field of robotic telepresence.
-Telepresence system offer many opportunities, by facilitating regions of the world to export specialized skills
-anywhere. The technology offers numerous advantages in terms of time and cost benefits by reducing transportation costs
-and energy and commuting time. Last but not least, telepresence eliminates numerous chemical and physical health
+Telepresence system offer many opportunities by for instance facilitating different regions of the world to export
+specialized skills anywhere at any time. The technology offers numerous additional advantages in terms of time and cost
+benefits by reducing transportation costs and energy and commuting time. Last but not least, telepresence eliminates numerous chemical and physical health
 hazards of physical presence in dangerous locations.
 
 
@@ -402,68 +404,68 @@ potential museum visitors to participate in tours on the museums and other educa
 
 A key challenge for robotic telepresence systems for visiting distant locations through a robot will be how to leverage
 the new opportunities provided by telepresence technology to engage users of the system by providing highly realistic
-user experiences. In the presented system the panoramic viewer in the browser's client is highly immersive and strives
-to make remote students feel as if they are present in the gallery through the panoramic video stream and by being
-highly interactive allowing remote students to select their own view within the panoramic image and engage in
-discussions with the educator and other students on the tour. The strive to make the tour a realistic experience does
-not preclude augmenting the tour experience by superimposing in key objects of the museum meta digital content layers
-for which they might wish to know more. The interactive nature of the systems presented here in the context of a museum
-visit permits interactive learning rather than passive and collaborative learning by allowing students to interact with
-each other and with the tour guide. This visual aspect greatly enhances communications, allowing for perceptions of
-facial expressions and other body language.
+user experiences. In the telepresence system presented here, the panoramic viewer in the browser's client is highly
+immersive and strives to make remote students feel as if they are present in the gallery through the panoramic video
+stream. The systems is also highly interactive allowing remote students to select their own view within the panoramic
+image and to engage in discussions with the educator and other students on the tour. The strive to make the tour a
+realistic experience does not preclude augmenting the tour experience by superimposing in key objects of the museum meta
+digital content layers for which a given student might wish to know more. The interactive nature of the systems
+presented here in the context of a museum visit permits interactive learning rather than passive and collaborative learning by allowing
+students to interact with each other and with the tour guide. This visual aspect greatly enhances communications,
+allowing for perceptions of facial expressions and other body language.
 
 
-However, specific telepresence application also need to overcome challenges that make the experience unrealistic. An
-important limitation of telepresence technology that we tried to bridge with our proposed system is the lack of
-awareness of the humans around the robot or elsewhere about the point of regard in the environment of the remote users.
-Our system bridges that gap by substituting the body language cues that actual museum visitors would provide to the
-museum tour guide with a visualization of the 3D environment in 2D where the gaze patterns of the remote users are
-superimposed. The importance of high quality sensory feedback is paramount in telepresence scenarios. The network of eye
-trackers system presented here provides an additional important clue to the museum tour guide about what areas in
-his/her environment are attracting the student's attention.
+However, specific telepresence application also need to overcome challenges that make the experience at its current
+stage unrealistic. An important limitation of telepresence technology that we tried to bridge with our proposed system
+is the lack of awareness of the humans around the robot or elsewhere about the point of regard in the environment of the
+remote users. Our system bridges that gap by substituting the body language cues that actual museum visitors would provide to the
+museum tour guide with a visualization of the 3D environment in 2D in the robot display where the gaze patterns of the
+remote users are superimposed. The importance of high quality sensory feedback is paramount in telepresence scenarios.
+The network of eye trackers system presented here provides an additional important clue to the museum tour guide about
+what areas in his/her environment are attracting the student's attention.
 
 
-The non-invasive nature of the eye trackers being uses, by virtue of being video based and not requiring any equipment
-physically attached to the museum visitors makes the system non-invasive. The gaze tracking monitoring being carried out
-in the background results in a transparent user experience that after the calibration is not necessarily aware any more
-than his gaze is being monitor since the task is being carried out silently in the background.
+The non-invasive nature of the eye trackers being used, by virtue of being video based and not requiring any equipment
+physically attached to the museum visitors, makes them non-invasive. The gaze tracking monitoring being carried
+out in the background results in a transparent user experience. Often, after the calibration the user is not necessarily
+aware any more than his gaze is being monitor since the task is being carried out silently in the background.
 
 
 One potential limitation of the system is the possibility of cognitively overloading the museum tour guide that while
 carrying out his usual touring tasks has to pay attention to the robot's display in order to monitor where in the
 environment the students are paying attention to. This potential issue can be limited by the tour guide consciously
-trying to avoid continuous paying attention to the robot's display while concentrating on its traditional tasks and
-looking at the display of the robot sparingly at key moments during the tour where he feels he needs to obtain feedback
+trying to avoid continuous attention on the robot's display but rather concentrating on its traditional tasks and
+looking at the display of the robot sparingly at key moments during the tour where he feels the need to obtain feedback
 about the engagement levels of the tour participants.
 
 
-The data gathered by the proposed system is simply used to provide a feedback signal to the museum tour guide in the
-current implementation of the system, but once the capabilities to gather the data are in place, all sort of
-sophisticated studies about learning during the museum tour visits or other type or robotic telepresence scenarios can
+The data gathered by the system that we proposed here is simply used to provide a feedback signal to the museum tour
+guide in the current implementation, but once the capabilities to gather the data are in place, all sort of
+sophisticated studies about learning during museum tour visits or other type or robotic telepresence scenarios can
 be envisioned. For instance, the gaze behavior of a class of students could be monitor during the museum visit. After
 the visit, the students would be required to answer a questionnaire to measure the degree of understanding and acquired
 knowledge that they achieved through the visit. Using this data, looking for correlations between the gaze behavior of 
 students performing poorly on the questionnaire and that of the students performing well could generate interesting
-insights about the relationships between gaze dynamics and learning. This knowledge could be used online to gently push
-students detected to be becoming disengaged with the museum visit, in an effort to regain their attention towards
+insights about the relationships between gaze dynamics and learning. This knowledge could be harnessed online to gently
+push students detected to be becoming disengaged with the museum visit, in an effort to regain their attention towards
 the task at hand with the end goal of maximizing the educational benefits of the museum tour. 
 
 
 Any sort of large scale study looking for correlations between learning and gaze dynamics in a robotic telepresence
 scenario would need a fairly large number of computers equipped with eye trackers to obtain enough statistical
-significance. This could be a limiting factor in case the gaze trackers required would be expensive. However, we reckon
-that low end eye trackers providing 30 frames per second tracking performance and the standard reported average accuracy
-of 0.5 degrees at 60 cm from the screen should suffice for numerous analysis and experimental scenarios. The current
-trend towards lower cost eye trackers from major manufacturers suggests that eye trackers hardware costs will not be a
-limiting factor for this sort of research.
+significance. This could be a limiting factor in case the gaze trackers required by the proposed method would be
+expensive. However, we reckon that low end eye trackers providing 30 frames per second tracking performance and the
+standard reported average accuracy of 0.5 degrees at 60 cm from the screen should suffice for numerous analysis and
+experimental scenarios. The current trend towards lower cost eye trackers from major manufacturers suggests that eye
+trackers hardware costs will not be a limiting factor for this sort of research.
 
  
 In summary, the system presented here is first of its kind in capturing the gaze data of several remote museum visitors
 in a robotic telepresence scenario in order display their gaze activity to a museum tour guide. This important feedback
 signal helps to bridge the communication gap between the museum tour educator and the distant museum visitors. Further
-studies should build over the presented system and use the gaze data generated by the system presented here to find out
-those students that are not benefiting from the museum tour and provide them with online signals to recapture their
-attention in order to improve their educational value of the museum visit experience.
+studies should build over the here proposed system and use the gaze data generated by the system to find
+out those students that are not benefiting from the museum tour and provide them with online signals to recapture their
+attention dynamically in order to improve their educational value of the museum visit experience.
 
 
 \bibliography{library}
