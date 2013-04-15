@@ -2,7 +2,8 @@
 \usepackage{graphicx} 
 \usepackage{palatino}
 \usepackage{fancyhdr}
-\usepackage{url}
+\usepackage{hyperref}
+\usepackage[strings]{underscore}
 \pagestyle{fancy}
 
 
@@ -15,8 +16,6 @@ Journal of Eye Movement Research\\
 \fancyfoot[C]{\thepage}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}}
-
-
 
 \title{Distributed Eye Tracking Network for Conveying Gaze of Remote Users in a Robotic Telepresence
 Scenario}
@@ -163,7 +162,7 @@ time.
 
 %XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 \section{Method}
-The entire gaze monitoring and robotic telepresence system comprises several subparts that we described below.
+The entire gaze monitoring and robotic telepresence system comprises several subparts that we describe below.
 
 \subsubsection{Eye-tracking system}
 Eyes are used by humans to obtain information about the surroundings and to communicate information. When something
@@ -195,9 +194,9 @@ corneal reflections are the features being tracked.
 
 In most eye tracking studies, the PoR of the user is employed to generate a heat map of attention areas in the 2D scene
 plane being observed or as a pointing device that substitutes the mouse in gaze interaction paradigms. For this work,
-eye tracking was used behind the scenes just to capture the gaze behavior of the remote museum visitors and transmit
-that data to the robot in order for it to display the aggregated gaze behavior of several users as a feedback signal to
-the museum educator.
+eye tracking was used behind the scenes just to capture the gaze behavior of the remote museum visitors. That data was
+then transmitted to the robot in order for it to display the aggregated gaze behavior of several
+users as a feedback signal to the museum educator.
 
 A set of 3 Tobii Rex eye trackers and 1 Tobii X1 light eye tracker are used for the experimental part. Both systems
 track gaze at 30 frames per second (fps) with an average gaze estimation accuracy of 0.5 degrees at 60cm from the screen, 
@@ -237,9 +236,9 @@ display on the front of the robot. With the proposed enhancement we are describi
 also able to monitor the gaze of the remote visitors on the screen of the robot.
 
 
-\subsection{360$^\circ$ Video and panoramic viewer}
+\subsection{360$^\circ$ Video Stream and Panoramic Viewer}
 A panorama is a single wide-angle image of the environment around the camera \cite{Gledhill2003435}. The most realistic
-types surround the camera on the horizontal plane (360$^\circ$), and 180$^\circ$ in the vertical field of view. 
+types capture their environment on the horizontal plane (360$^\circ$), and 180$^\circ$ in the vertical field of view. 
 There are different ways to capture a panorama: single, rotated about its optical center, single omnidirectional camera
 (using multiple cameras facing  in different directions) or using a stereo panoramic camera from which scene
 information can be extracted.
@@ -254,7 +253,7 @@ browser clients in the remote visitor's computers.
  \end{center}
  %\fitbitmap{figures/ladybug.jpg}
  \caption{\textbf{Panoramic Camera.} The figure displays the LadyBug3 panoramic camera on top of the robot
- that uses several cameras facing different directions to create a panoramic image of the robots surroundings.}
+ that uses several cameras facing different directions to create a panoramic image of the robot's surroundings.}
  \label{ladybug}
 \end{figure}
 
@@ -262,8 +261,7 @@ The panoramic camera used in this work uses six 2.0MP cameras to capture a 360$^
 The six individual images are stitched onto a fixed-radius sphere, and then mapped onto a rectangular image using a cylindrical
 (Mercator) projection. A continuous sequence of these panoramic images is encoded into a high-definition video stream
 and sent to each client, where it is decoded and mapped onto a spherical canvas for immersive panoramic viewing 
-using a virtual camera.
-(see Figures \ref{panoramicImage} and \ref{omnidirectionalimage}.
+using a virtual camera (see Figures \ref{panoramicImage} and \ref{omnidirectionalimage}.
 
 \begin{figure}[tp]
  \begin{center}
@@ -272,7 +270,10 @@ using a virtual camera.
  %\fitbitmap{figures/ladybug.jpg}
  \caption{\textbf{Panoramic Viewer.} The panoramic camera is used to capture different, but overlapping, views
  of the robot environment that are combined into a panoramic video stream, and sent to each client, where it is  
- wrapped onto a virtual sphere to create an immersive 3D-like experience for the remote users.} 
+ wrapped onto a virtual sphere to create an immersive 3D-like experience for the remote users. The planes in the top of
+ the Figure represent the planes captured by the different cameras in the Ladybug. The color coded representation in
+ the bottom display how the different planes are stiched together in the panoramic viewer to form a cubical panoramic
+ environment.}
  \label{panoramicImage}
 \end{figure}
 
@@ -282,17 +283,16 @@ using a virtual camera.
  \end{center}
  %\fitbitmap{figures/ladybug.jpg}
  \caption{\textbf{Creation of an Immersive Telepresence System.} Images from the 360$^\circ$ camera on top of the robot
- are combined to form a high-resolution 2D omnidirectional image that creates a 360$^\circ$ representation of the
- environment around the robot. The image of the top of the Figure represents a condensed representation of the
- 360$^\circ$ panoramic image captured by the panoramic camera. Individual users can look at different planes of the
+ are combined to form a high-resolution 2D omnidirectional image representing the
+ environment around the robot (top image). Individual users can look at different planes of the
  panoramic video stream (bottom images).}
  \label{omnidirectionalimage}
 \end{figure}
 
-We use Krpano\footnote{\url{http://Krpano.com/}} as the panoramic image viewer used in the remote computers . Krpano
+We use Krpano\footnote{\url{http://Krpano.com/}} as the panoramic image viewer used in the remote computers. Krpano
 is a light and very flexible high-performance viewer for all kind of panoramic images, videos and interactive virtual tours.
-The viewer is available as Flash and HTML5 application and is designed for usage inside a Browser on Desktop and Mobile
-computer devices. For our specific telepresence museum visit, each remote students can then independently ``look
+The viewer is available as a Flash or HTML5 application and is designed for usage inside a Browser on Desktop and
+Mobile computer devices. For our specific telepresence museum visit, each remote students can then independently ``look
 around'' the gallery using the panoramic viewer within their browser as shown in Figure \ref{museumtourview}.
 
 \begin{figure}[tp]
@@ -328,7 +328,7 @@ where the museum visitor is looking at and those parameters are then send back t
  \label{aggregatedGazeBehavior}
 \end{figure}
 
-Images from the 360 degree camera on top of the robot currently being captured are combined to form a condensed 2D
+Images from the panoramic camera on top of the robot currently being captured are combined to form a condensed 2D
 omni-directional image. The points of regard of several remote museum visitors are projected into this image to provide feedback
 to the educator about where the students are paying attention to in the scene, see Figure \ref{aggregatedGazeBehavior}
 and \ref{robotDisplay}.
@@ -350,7 +350,7 @@ horizontal and vertical fields of view. A javascript client program embedded in 
 panoramic viewer field of view and stream this data through a websocket to a local server that also receives gaze
 coordinates from a gaze tracker client. This server streams the horizontal and vertical field of view and the gaze
 coordinates to a further server located in the robot that dispatches all the gaze data streams from different browser
-clients to a handler that displays this information on top of a condensed representation 2D representation of the
+clients to a handler that displays this information on top of a condensed 2D representation of the
 omni-directional video stream currently being captured by the robot. The TCP protocol is used to issue commands to the
 eye trackers such as start calibration, calculate results from calibration, start tracking, stop tracking.
 Data transfers between the clients and the robot is carried out using the UDP protocol for its simplicity and due to the
@@ -377,7 +377,7 @@ be placed in the robot receives the vector features from each connected client, 
 to the display unit to render the gaze coordinates of each user being monitored by representing his/her gaze as a disc
 over a condensed 2D representation of the panoramic image. In order to gather a sense about how the remote gaze
 monitoring system in the robotic telepresence scenario works, the interested reader is encouraged to take a look at the
-manuscript's associated video at \url{http://www.youtube.com/watch?v=gB89jT2_3oA}. The video provides a good visual
+manuscript's associated video at \url{http://youtu.be/gB89jT2_3oA}. The video provides a good visual
 overview of a preliminary version of the system at work and how it can be used to monitor the gaze behavior of remote
 museum visitors. The video also shows how the gaze data of the remote users is superimposed in the condensed 2D
 representation of the panoramic image being captured by the robot, the key feature of the system described system. The
